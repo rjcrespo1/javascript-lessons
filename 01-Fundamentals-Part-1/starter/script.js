@@ -50,18 +50,18 @@
 
 // console.log(now - 1991 > now - 2018)
 
-const now = 2037;
-const ageRyan = now - 1989;
-const ageSarah = now - 2018;
+// const now = 2037;
+// const ageRyan = now - 1989;
+// const ageSarah = now - 2018;
 
-console.log(now - 1991 > now - 2018);
+// console.log(now - 1991 > now - 2018);
 
-let x, y;
-x = y = 25 - 10 - 5; // ==> x = y = 10, x = 10
-console.log(x, y);
+// let x, y;
+// x = y = 25 - 10 - 5; // ==> x = y = 10, x = 10
+// console.log(x, y);
 
-const averageAge = (ageRyan + ageSarah) / 2;
-console.log(ageRyan, ageSarah, averageAge);
+// const averageAge = (ageRyan + ageSarah) / 2;
+// console.log(ageRyan, ageSarah, averageAge);
 
 
 ///////////////////////////////////
@@ -80,35 +80,72 @@ TEST DATA 2: Marks weights 95 kg and is 1.88 m tall. John weights 85 kg and is 1
 GOOD LUCK 😀
 */
 
-// TEST DATA 1:
-const markMass1 = 78;
-const markHeight1 = 1.69;
-const johnMass1 = 92;
-const johnHeight1 = 1.95;
+// // TEST DATA 1:
+// const markMass1 = 78;
+// const markHeight1 = 1.69;
+// const johnMass1 = 92;
+// const johnHeight1 = 1.95;
 
-const markBMI1 = markMass1 / markHeight1 ** 2;
-const johnBMI1 = johnMass1 / johnHeight1 ** 2;
-console.log(markBMI1);
-console.log(johnBMI1);
+// const markBMI1 = markMass1 / markHeight1 ** 2;
+// const johnBMI1 = johnMass1 / johnHeight1 ** 2;
+// console.log(markBMI1);
+// console.log(johnBMI1);
 
-const markHigherBMI1 = markBMI1 > johnBMI1;
+// const markHigherBMI1 = markBMI1 > johnBMI1;
 
-console.log(markHigherBMI1);
+// console.log(markHigherBMI1);
 
-// TEST DATA 2:
-const markMass2 = 94;
-const markHeight2 = 1.88;
-const johnMass2 = 85;
-const johnHeight2 = 1.76;
+// // TEST DATA 2:
+// const markMass2 = 94;
+// const markHeight2 = 1.88;
+// const johnMass2 = 85;
+// const johnHeight2 = 1.76;
 
-const markBMI2 = markMass2 / markHeight2 ** 2;
-const johnBMI2 = johnMass2 / johnHeight2 ** 2;
-console.log(markBMI2);
-console.log(johnBMI2);
+// const markBMI2 = markMass2 / markHeight2 ** 2;
+// const johnBMI2 = johnMass2 / johnHeight2 ** 2;
+// console.log(markBMI2);
+// console.log(johnBMI2);
 
-const markHigherBMI2 = markBMI2 > johnBMI2;
+// const markHigherBMI2 = markBMI2 > johnBMI2;
 
-console.log(markHigherBMI2);
+// console.log(markHigherBMI2);
 
 // END CODING CHALLENGE #1
 ///////////////////////////////////
+
+// Strings & Template Literals
+// const firstName = 'Ryan';
+// const job = 'developer';
+// const birthYear = 1989;
+// const year = 2022;
+
+// const ryan = "I'm " + firstName + ', a ' + (year - birthYear) + ' years old ' + job + '!'; // ==> old way...don't do this! 
+// console.log(ryan);
+
+// const ryanNew = `I'm ${firstName}, a ${year - birthYear} years old ${job}!`
+// console.log(ryanNew);
+
+// console.log(`String
+// with
+// multiple
+// lines`);
+
+// Taking Decisions: if / else Statements
+const age = 16;
+const isOldEnough = age >= 18;
+
+if(isOldEnough) {
+    console.log('Sarah can start driving! 🚗');
+} else {
+    const yearsLeft = 18 - age;
+    console.log(`Sarah is not old enough to drive yet. She has ${yearsLeft} years left.`);
+};
+
+const birthYear = 1989;
+let century;
+if (birthYear <= 2000) {
+     century = 20;
+} else {
+     century = 21;
+};
+console.log(century);
