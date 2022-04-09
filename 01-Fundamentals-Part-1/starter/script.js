@@ -80,35 +80,35 @@ TEST DATA 2: Marks weights 95 kg and is 1.88 m tall. John weights 85 kg and is 1
 GOOD LUCK 😀
 */
 
-// // TEST DATA 1:
-// const markMass1 = 78;
-// const markHeight1 = 1.69;
-// const johnMass1 = 92;
-// const johnHeight1 = 1.95;
+// TEST DATA 1:
+const markMass1 = 78;
+const markHeight1 = 1.69;
+const johnMass1 = 92;
+const johnHeight1 = 1.95;
 
-// const markBMI1 = markMass1 / markHeight1 ** 2;
-// const johnBMI1 = johnMass1 / johnHeight1 ** 2;
-// console.log(markBMI1);
-// console.log(johnBMI1);
+const markBMI1 = markMass1 / markHeight1 ** 2;
+const johnBMI1 = johnMass1 / johnHeight1 ** 2;
+console.log(markBMI1);
+console.log(johnBMI1);
 
-// const markHigherBMI1 = markBMI1 > johnBMI1;
+const markHigherBMI1 = markBMI1 > johnBMI1;
 
-// console.log(markHigherBMI1);
+console.log(markHigherBMI1);
 
-// // TEST DATA 2:
-// const markMass2 = 94;
-// const markHeight2 = 1.88;
-// const johnMass2 = 85;
-// const johnHeight2 = 1.76;
+// TEST DATA 2:
+const markMass2 = 94;
+const markHeight2 = 1.88;
+const johnMass2 = 85;
+const johnHeight2 = 1.76;
 
-// const markBMI2 = markMass2 / markHeight2 ** 2;
-// const johnBMI2 = johnMass2 / johnHeight2 ** 2;
-// console.log(markBMI2);
-// console.log(johnBMI2);
+const markBMI2 = markMass2 / markHeight2 ** 2;
+const johnBMI2 = johnMass2 / johnHeight2 ** 2;
+console.log(markBMI2);
+console.log(johnBMI2);
 
-// const markHigherBMI2 = markBMI2 > johnBMI2;
+const markHigherBMI2 = markBMI2 > johnBMI2;
 
-// console.log(markHigherBMI2);
+console.log(markHigherBMI2);
 
 // END CODING CHALLENGE #1
 ///////////////////////////////////
@@ -131,21 +131,42 @@ GOOD LUCK 😀
 // lines`);
 
 // Taking Decisions: if / else Statements
-const age = 16;
-const isOldEnough = age >= 18;
+// const age = 16;
+// const isOldEnough = age >= 18;
 
-if(isOldEnough) {
-    console.log('Sarah can start driving! 🚗');
-} else {
-    const yearsLeft = 18 - age;
-    console.log(`Sarah is not old enough to drive yet. She has ${yearsLeft} years left.`);
-};
+// if(isOldEnough) {
+//     console.log('Sarah can start driving! 🚗');
+// } else {
+//     const yearsLeft = 18 - age;
+//     console.log(`Sarah is not old enough to drive yet. She has ${yearsLeft} years left.`);
+// };
 
-const birthYear = 1989;
-let century;
-if (birthYear <= 2000) {
-     century = 20;
+// const birthYear = 1989;
+// let century;
+// if (birthYear <= 2000) {
+//      century = 20;
+// } else {
+//      century = 21;
+// };
+// console.log(century);
+
+
+////////////////////////////////////
+// Coding Challenge #2
+
+/*
+Use the BMI example from Challenge #1, and the code you already wrote, and improve it:
+
+1. Print a nice output to the console, saying who has the higher BMI. The message can be either "Mark's BMI is higher than John's!" or "John's BMI is higher than Mark's!"
+2. Use a template literal to include the BMI values in the outputs. Example: "Mark's BMI (28.3) is higher than John's (23.9)!"
+
+HINT: Use an if/else statement 😉
+
+GOOD LUCK 😀
+*/
+
+if (markHigherBMI1) {
+    console.log(`Mark's BMI (${markBMI1}) is higher than John's BMI (${johnBMI1})!`);
 } else {
-     century = 21;
-};
-console.log(century);
+    console.log(`John's BMI (${johnBMI1}) is higher than Mark's BMI (${markBMI1})!`)
+}; 
