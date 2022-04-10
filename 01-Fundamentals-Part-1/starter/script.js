@@ -80,35 +80,35 @@ TEST DATA 2: Marks weights 95 kg and is 1.88 m tall. John weights 85 kg and is 1
 GOOD LUCK 😀
 */
 
-// TEST DATA 1:
-const markMass1 = 78;
-const markHeight1 = 1.69;
-const johnMass1 = 92;
-const johnHeight1 = 1.95;
+// // TEST DATA 1:
+// const markMass1 = 78;
+// const markHeight1 = 1.69;
+// const johnMass1 = 92;
+// const johnHeight1 = 1.95;
 
-const markBMI1 = markMass1 / markHeight1 ** 2;
-const johnBMI1 = johnMass1 / johnHeight1 ** 2;
-console.log(markBMI1);
-console.log(johnBMI1);
+// const markBMI1 = markMass1 / markHeight1 ** 2;
+// const johnBMI1 = johnMass1 / johnHeight1 ** 2;
+// console.log(markBMI1);
+// console.log(johnBMI1);
 
-const markHigherBMI1 = markBMI1 > johnBMI1;
+// const markHigherBMI1 = markBMI1 > johnBMI1;
 
-console.log(markHigherBMI1);
+// console.log(markHigherBMI1);
 
-// TEST DATA 2:
-const markMass2 = 94;
-const markHeight2 = 1.88;
-const johnMass2 = 85;
-const johnHeight2 = 1.76;
+// // TEST DATA 2:
+// const markMass2 = 94;
+// const markHeight2 = 1.88;
+// const johnMass2 = 85;
+// const johnHeight2 = 1.76;
 
-const markBMI2 = markMass2 / markHeight2 ** 2;
-const johnBMI2 = johnMass2 / johnHeight2 ** 2;
-console.log(markBMI2);
-console.log(johnBMI2);
+// const markBMI2 = markMass2 / markHeight2 ** 2;
+// const johnBMI2 = johnMass2 / johnHeight2 ** 2;
+// console.log(markBMI2);
+// console.log(johnBMI2);
 
-const markHigherBMI2 = markBMI2 > johnBMI2;
+// const markHigherBMI2 = markBMI2 > johnBMI2;
 
-console.log(markHigherBMI2);
+// console.log(markHigherBMI2);
 
 // END CODING CHALLENGE #1
 ///////////////////////////////////
@@ -165,8 +165,47 @@ HINT: Use an if/else statement 😉
 GOOD LUCK 😀
 */
 
-if (markHigherBMI1) {
-    console.log(`Mark's BMI (${markBMI1}) is higher than John's BMI (${johnBMI1})!`);
-} else {
-    console.log(`John's BMI (${johnBMI1}) is higher than Mark's BMI (${markBMI1})!`)
-}; 
+// if (markBMI1 > johnBMI1) {
+//     console.log(`Mark's BMI (${markBMI1}) is higher than John's BMI (${johnBMI1})!`);
+// } else {
+//     console.log(`John's BMI (${johnBMI1}) is higher than Mark's BMI (${markBMI1})!`);
+// }; 
+
+/////////////////////////////////////
+
+
+// Type Conversion & Type Coercion
+// --------------------------
+// type conversion ======
+const inputYear = '1991';
+console.log(Number(inputYear), inputYear); // ==> ****Number()**** converts string into number!!
+console.log(Number(inputYear) + 18);
+
+console.log(Number('Ryan'));
+console.log(typeof NaN);
+
+console.log(String(23), 23); // ==> ****String()**** converts number into a string!!
+
+// type coercion ======
+console.log('I am ' + 23 +' years old');
+console.log('23' - '10' - 3); // - changes it to number
+console.log('23' + '10' + 3); // + leaves it as a string
+console.log('23' * '2'); // * & / changes it to a number
+
+
+let n = '1' + 1; // '11'
+n = n - 1; // 11 - 1
+console.log(n); // 10
+
+console.log(2 + 3 + 4 + '5'); // when using '+' it will any numbers that come before the string then add the string to the end ====>> 2 + 3 = 5 + 4 = 9 + '5' = 95
+console.log('10' - '4' - '3' - 2 + '5'); // '10' - '4' is the same as 10 - 4...so on and so on the add string to the end ====>> ....15
+
+
+// Truthy and Falsy Value
+// -------------------------
+// ===== 5 falsy values: 0, '', undefined, null, NaN
+console.log(Boolean(0));
+console.log(Boolean(undefined));
+console.log(Boolean('Ryan'));
+console.log(Boolean({}));
+console.log(Boolean(''));
