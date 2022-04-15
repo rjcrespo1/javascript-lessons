@@ -57,3 +57,59 @@ const calcAge2 = function (birthYear) {
 
 const age2 = calcAge2(1991);
 console.log(age2);
+
+
+// Arrow Functions
+// ----------------------------------------------------------
+const calcAge3 = birthYear => 2037 - birthYear; // serves the same purpose as the function above but it is much cleaner and a lot easier to write
+const age3 = calcAge3(1989);
+console.log(age3);
+
+const yearsUntilRetire = (birthYear, firstName) => {
+    const age = 2022 - birthYear;
+    const retirement = 65 - age;
+    // return retirement;
+    return `${firstName} retires in ${retirement} years`;
+}
+
+console.log(yearsUntilRetire(1989, 'Ryan'));
+console.log(yearsUntilRetire(1979, 'Jim'));
+
+
+// Fucntions Calling Other Functions
+// --------------------------------------------------------
+function cutFruit(fruit) { // the parameter "2" which we are calling at the end of the function is being used as a parameter here. so it is replacing fruit in both lines
+    return fruit * 5; // this line turns into return 2 * 4 or return 3 * 4. depending on the value which you give when you call the function. in our case we gave it two values...2 and 3.
+};
+
+function foodProcessor(apples, oranges) { // the value 2 being brought in will passed onto the cutFruit(apples) function which we are calling below this line. same thing with oranges and 3
+    const applePieces = cutFruit(apples); // the value 2 that is brought in from above actually goes to the first function cutFruit(fruit) as the argument
+    const orangePieces = cutFruit(oranges);
+    // console.log(apples, oranges);
+    const juice = `Juice with ${applePieces} pieces of apples and ${orangePieces} pieces of oranges.`;
+    return juice;
+};
+
+console.log(foodProcessor(2, 3)); // the 2 will replace the apples parameters in the foodProcessor function and same thing with the 3 and orange parameters
+
+// Reviewing Functions
+// -------------------------------------------------------------
+const calcAge = function (birthYeah) {
+    return 2037 - birthYeah;
+  }
+  
+  const yearsUntilRetirement = function (birthYeah, firstName) {
+    const age = calcAge(birthYeah);
+    const retirement = 65 - age;
+  
+    if (retirement > 0) {
+      console.log(`${firstName} retires in ${retirement} years`);
+      return retirement;
+    } else {
+      console.log(`${firstName} has already retired 🎉`);
+      return -1;
+    }
+  }
+  
+  console.log(yearsUntilRetirement(1991, 'Jonas'));
+  console.log(yearsUntilRetirement(1950, 'Mike'));
