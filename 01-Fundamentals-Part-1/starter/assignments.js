@@ -80,7 +80,6 @@ if (language === 'english' && population < 50 && !isIsland) {
 };
 */
 
-
 // // The Swicth Statement
 // const language = 'english';
 
@@ -104,7 +103,6 @@ if (language === 'english' && population < 50 && !isIsland) {
 //     default:
 //         console.log('Great language too :D');
 // };
-
 
 // The Conditional (Ternary) Operator
 // const population = 300;
