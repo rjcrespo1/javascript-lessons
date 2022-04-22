@@ -62,3 +62,5 @@ describePopulation('China', 1400);
 
 
 ////////////////////////////////////////
+// INTRO TO ARRAYS
+const populations = [];
