@@ -1,6 +1,6 @@
 // Activating Strict Mode
 // ------------------------------------------------------
-'use strict';
+"use strict";
 
 // let hasDriversLicense = false;
 // const passTest = true;
@@ -10,7 +10,6 @@
 
 // const interface = 'Audio';
 // const private = 633;
-
 
 // Functions
 // ------------------------------------------------------
@@ -37,7 +36,6 @@
 // const num = Number('23');
 // console.log(num);
 
-
 // Function Declarations vs. Expressions
 // -------------------------------------------------------
 
@@ -58,7 +56,6 @@
 // const age2 = calcAge2(1991);
 // console.log(age2);
 
-
 // Arrow Functions
 // ----------------------------------------------------------
 // const calcAge3 = birthYear => 2037 - birthYear; // serves the same purpose as the function above but it is much cleaner and a lot easier to write
@@ -74,7 +71,6 @@
 
 // console.log(yearsUntilRetire(1989, 'Ryan'));
 // console.log(yearsUntilRetire(1979, 'Jim'));
-
 
 // Fucntions Calling Other Functions
 // --------------------------------------------------------
@@ -95,25 +91,24 @@
 // Reviewing Functions
 // -------------------------------------------------------------
 const calcAge = function (birthYeah) {
-    return 2037 - birthYeah;
-  }
-  
-  const yearsUntilRetirement = function (birthYeah, firstName) {
-    const age = calcAge(birthYeah);
-    const retirement = 65 - age;
-  
-    if (retirement > 0) {
-      console.log(`${firstName} retires in ${retirement} years`);
-      return retirement;
-    } else {
-      console.log(`${firstName} has already retired`);
-      return -1;
-    }
-  }
-  
-  console.log(yearsUntilRetirement(1991, 'Jonas'));
-  console.log(yearsUntilRetirement(1950, 'Mike'));
+  return 2037 - birthYeah;
+};
 
+const yearsUntilRetirement = function (birthYeah, firstName) {
+  const age = calcAge(birthYeah);
+  const retirement = 65 - age;
+
+  if (retirement > 0) {
+    console.log(`${firstName} retires in ${retirement} years`);
+    return retirement;
+  } else {
+    console.log(`${firstName} has already retired`);
+    return -1;
+  }
+};
+
+console.log(yearsUntilRetirement(1991, "Jonas"));
+console.log(yearsUntilRetirement(1950, "Mike"));
 
 ////////////////////////////////////////////
 // Coding Challenge #1
@@ -138,6 +133,36 @@ HINT: To check if number A is at least double number B, check for A >= 2 * B. Ap
 GOOD LUCK 😀
 */
 
-const calcAverage = () => {
-    score1, score2, score3
+const calcAverage = (a, b, c) => (a + b + c) / 3; // no need for a return. the value after the "=>" gets returned automatically
+console.log(calcAverage(4, 8, 3));
+
+// Test 1
+let scoreDolphins = calcAverage(44, 23, 71); // we use let here because we will change this later for the 2nd test case
+let scoreKoalas = calcAverage(65, 54, 49);
+console.log(scoreDolphins, scoreKoalas);
+
+const checkWinner = function(avgDolphins, avgKoalas) {
+    if (avgDolphins >= 2 * avgKoalas) {
+        console.log(`Dolphins Win! (${avgDolphins} vs. ${avgKoalas})`);
+    } else if (avgKoalas >= 2 * avgDolphins) {
+        console.log(`Koalas Win! (${avgKoalas} vs. ${avgDolphins})`);
+    } else {
+        console.log('No Team Wins...');
+    }
 }
+checkWinner(scoreDolphins, scoreKoalas);
+
+// checkWinner(400, 200); // using random numbers to test out the other conditions. You don't HAVE to use the original arguments when calling the function
+
+// Test 2
+scoreDolphins = calcAverage(85, 54, 41); // we don't use let here because we are overwriting the variable itself. So if you use let somewhere else in your code you can simply change it by only using the variable name
+scoreKoalas = calcAverage(23, 34, 27);
+console.log(scoreDolphins, scoreKoalas);
+
+checkWinner(scoreDolphins, scoreKoalas);
+
+// END CHALLENGE
+////////////////////////////////////////////////
+
+// Intro to Arrays 
+// --------------------------------------------------------
