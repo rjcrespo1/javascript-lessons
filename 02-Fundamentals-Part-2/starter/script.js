@@ -164,18 +164,18 @@ GOOD LUCK 😀
 // END CHALLENGE
 ////////////////////////////////////////////////
 
-// Intro to Arrays 
+// Intro to Arrays
 // --------------------------------------------------------
 
-const friend1 = 'Michael';
-const friend2 = 'Steve';
-const friend3 = 'Pete';
+const friend1 = "Michael";
+const friend2 = "Steve";
+const friend3 = "Pete";
 
-const friends = ['Mike', 'Steve', 'Pete']; // Arrays are a cleaner way of putting multiple variables together without writing tons of different variables
+const friends = ["Mike", "Steve", "Pete"]; // Arrays are a cleaner way of putting multiple variables together without writing tons of different variables
 console.log(friends); // Arrays always start counting from 0. So 'Mike' == 0, 'Steve' == 1, 'Pete' == 2. But the length of the array is still 3 because there's 3 items in it
 
-const years = new Array(1991, 1984, 2008, 2020); // a different way to create arrays. Above method is much more common
-console.log(years);
+// const years = new Array(1991, 1984, 2008, 2020); // a different way to create arrays. Above method is much more common
+// console.log(years);
 
 console.log(friends[0]); // the number specifies which item in the array to return. So this one would show 'Mike'
 console.log(friends[1]); // ==> 'Steve'
@@ -184,5 +184,36 @@ console.log(friends[2]); // ==> 'Pete'
 console.log(friends.length); // .length is a property which shows how many elements are in the array ==> 3
 console.log(friends[friends.length - 1]); // this will return the final element in the array.
 
-friends[2] = 'Bill';
+friends[2] = "Bill";
 console.log(friends);
+
+// Only primitive values are immutable. Arrays are not primitive values
+
+// friends = ['bob', 'ellis']; // this won't work. You can't change the whole array, only the values inside it
+
+const firstName = "Ryan";
+const ryan = [firstName, "Crespo", 2022 - 1989, "Developer", friends]; // you can put other arrays inside arrays ==> [friends]
+console.log(ryan);
+console.log(ryan[4]);
+
+// Exercise
+const calcAge = function (birthYeah) {
+  return 2037 - birthYeah;
+};
+const years = [1990, 1967, 2002, 2010, 2018];
+
+const age1 = calcAge(years[0]);
+const age2 = calcAge(years[1]);
+const age3 = calcAge(years[years.length - 1]);
+
+console.log(age1, age2, age3);
+
+const ages = [
+  calcAge(years[0]),
+  calcAge(years[1]),
+  calcAge(years[years.length - 1]),
+];
+console.log(ages);
+
+const ages2 = [age1, age2, age3]; // this array is doing the same thing that the above array [ages] is doing. This just cleans the code and is much easier to write 
+console.log(ages2);
