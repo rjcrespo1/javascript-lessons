@@ -167,34 +167,34 @@ GOOD LUCK 😀
 // Intro to Arrays
 // --------------------------------------------------------
 
-const friend1 = "Michael";
-const friend2 = "Steve";
-const friend3 = "Pete";
+// const friend1 = "Michael";
+// const friend2 = "Steve";
+// const friend3 = "Pete";
 
-const friends = ["Mike", "Steve", "Pete"]; // Arrays are a cleaner way of putting multiple variables together without writing tons of different variables
-console.log(friends); // Arrays always start counting from 0. So 'Mike' == 0, 'Steve' == 1, 'Pete' == 2. But the length of the array is still 3 because there's 3 items in it
+// const friends = ["Mike", "Steve", "Pete"]; // Arrays are a cleaner way of putting multiple variables together without writing tons of different variables
+// console.log(friends); // Arrays always start counting from 0. So 'Mike' == 0, 'Steve' == 1, 'Pete' == 2. But the length of the array is still 3 because there's 3 items in it
 
-// const years = new Array(1991, 1984, 2008, 2020); // a different way to create arrays. Above method is much more common
-// console.log(years);
+// // const years = new Array(1991, 1984, 2008, 2020); // a different way to create arrays. Above method is much more common
+// // console.log(years);
 
-console.log(friends[0]); // the number specifies which item in the array to return. So this one would show 'Mike'
-console.log(friends[1]); // ==> 'Steve'
-console.log(friends[2]); // ==> 'Pete'
+// console.log(friends[0]); // the number specifies which item in the array to return. So this one would show 'Mike'
+// console.log(friends[1]); // ==> 'Steve'
+// console.log(friends[2]); // ==> 'Pete'
 
-console.log(friends.length); // .length is a property which shows how many elements are in the array ==> 3
-console.log(friends[friends.length - 1]); // this will return the final element in the array.
+// console.log(friends.length); // .length is a property which shows how many elements are in the array ==> 3
+// console.log(friends[friends.length - 1]); // this will return the final element in the array.
 
-friends[2] = "Bill";
-console.log(friends);
+// friends[2] = "Bill";
+// console.log(friends);
 
 // Only primitive values are immutable. Arrays are not primitive values
 
 // friends = ['bob', 'ellis']; // this won't work. You can't change the whole array, only the values inside it
 
-const firstName = "Ryan";
-const ryan = [firstName, "Crespo", 2022 - 1989, "Developer", friends]; // you can put other arrays inside arrays ==> [friends]
-console.log(ryan);
-console.log(ryan[4]);
+// const firstName = "Ryan";
+// const ryan = [firstName, "Crespo", 2022 - 1989, "Developer", friends]; // you can put other arrays inside arrays ==> [friends]
+// console.log(ryan);
+// console.log(ryan[4]);
 
 // Exercise
 const calcAge = function (birthYeah) {
@@ -215,5 +215,64 @@ const ages = [
 ];
 console.log(ages);
 
-const ages2 = [age1, age2, age3]; // this array is doing the same thing that the above array [ages] is doing. This just cleans the code and is much easier to write 
+const ages2 = [age1, age2, age3]; // this array is doing the same thing that the above array [ages] is doing. This just cleans the code and is much easier to write
 console.log(ages2);
+
+// Basic Array Operations (Methods)
+// ---------------------------------------------------------
+const friends = ["Mike", "Steve", "Pete"];
+
+// Add Elements
+const newLength = friends.push("Jay"); // .push() adds elements to the end of a currently existing array. Also the push() value does return something. It returns the length of the new array
+console.log(friends, newLength); // ==> [new array] & 4
+
+friends.unshift("John");
+console.log(friends); // the unshift() method adds an element to the beginning of the array. Also returns the length of the array
+
+// Remove Elements
+const popped = friends.pop(); // .pop() removes the last element of the array. Doesn't need any arguments
+console.log(friends, popped); // ==> [new array] & "element that was removed"   .pop() does return a value but unlike push() and unshift(), .pop() returns the element that was removed.
+
+friends.shift(); // the shift() method removes the first element of the array. And just like pop(), the value it returns is the element that was removed
+console.log(friends);
+
+console.log(friends.indexOf("Pete")); // indexOf returns the position of the element(s) being called...so in this case the console should say 2. If an element which is not in the array is called it returns as -1
+
+console.log(friends.includes("Jay")); // the includes() method simply checks if an element is included in the array and returns true if it is and false if it's not in the array
+console.log(friends.includes("Steve")); // includes() checks for strict equalities, so if there's a number and you check that number in a string it will come back false
+
+if (friends.includes("Pete")) {
+  console.log("Pete is a good friend!");
+}
+
+///////////////////////////////////////
+// Coding Challenge #2
+
+/*
+Steven is still building his tip calculator, using the same rules as before: Tip 15% of the bill if the bill value is between 50 and 300, and if the value is different, the tip is 20%.
+
+1. Write a function 'calcTip' that takes any bill value as an input and returns the corresponding tip, calculated based on the rules above (you can check out the code from first tip calculator challenge if you need to). Use the function type you like the most. Test the function using a bill value of 100.
+2. And now let's use arrays! So create an array 'bills' containing the test data below.
+3. Create an array 'tips' containing the tip value for each bill, calculated from the function you created before.
+4. BONUS: Create an array 'total' containing the total values, so the bill + tip.
+
+TEST DATA: 125, 555 and 44
+
+HINT: Remember that an array needs a value in each position, and that value can actually be the returned value of a function! So you can just call a function as array values (so don't store the tip values in separate variables first, but right in the new array) 😉
+
+GOOD LUCK 😀
+*/
+
+const calcTip = (bill) => {
+  return bill >= 50 && bill <= 300 ? (15 / 100) * bill : (20 / 100) * bill;
+}; // this function simply checks if the bill is between 50 and 300, it adds a 15% tip. Otherwise it will add a 20% tip
+
+const bills = [125, 555, 44]; // simple array for different bills for testing purposes
+const tips = [calcTip(bills[0]), calcTip(bills[1]), calcTip(bills[2])]; // [calcTip(bills[0])] ==> this takes the function above and substitutes the actual values of bills to perform the calculation of the function
+console.log(tips); // this should log the expected tips, based off the function, in an array to the console
+
+const total = [bills[0] + tips[0], bills[1] + tips[1], bills[2] + tips[2]]; // this just adds the bills with the tips and brings us back the total
+console.log(total);
+
+// END CHALLENGE
+/////////////////////////////////////////////
