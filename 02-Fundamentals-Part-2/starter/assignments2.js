@@ -74,3 +74,23 @@ console.log(percentages);
 
 ////////////////////////////////////////////
 // BASIC ARRAY OPERATIONS
+const neighbors = ["Italy", "Spain", "Belgium"];
+
+neighbors.push("Utopia");
+console.log(neighbors);
+
+neighbors.pop();
+console.log(neighbors);
+
+if (!neighbors.includes("Germany")) {
+  console.log("Probably not a Central European Country");
+} else {
+  console.log("Is probably a Central European Country");
+}
+
+neighbors[neighbors.indexOf("Spain")] = "Republic of Spain";
+console.log(neighbors);
+////////////////////////////////////////////////////
+
+//////////////////////////////////////////////////
+// INTRO TO OBJECTS
