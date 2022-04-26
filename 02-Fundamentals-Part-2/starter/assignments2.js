@@ -57,19 +57,19 @@
 
 ////////////////////////////////////////
 // INTRO TO ARRAYS
-const populations = [300, 46, 1400, 59];
-console.log(populations.length === 4);
+// const populations = [300, 46, 1400, 59];
+// console.log(populations.length === 4);
 
-function percentageOfWorld1(population) {
-  return (population / 7900) * 100;
-}
-const percentages = [
-  percentageOfWorld1(populations[0]),
-  percentageOfWorld1(populations[1]),
-  percentageOfWorld1(populations[2]),
-  percentageOfWorld1(populations[3]),
-];
-console.log(percentages);
+// function percentageOfWorld1(population) {
+//   return (population / 7900) * 100;
+// }
+// const percentages = [
+//   percentageOfWorld1(populations[0]),
+//   percentageOfWorld1(populations[1]),
+//   percentageOfWorld1(populations[2]),
+//   percentageOfWorld1(populations[3]),
+// ];
+// console.log(percentages);
 ////////////////////////////////////////////
 
 ////////////////////////////////////////////
@@ -94,3 +94,21 @@ console.log(neighbors);
 
 //////////////////////////////////////////////////
 // INTRO TO OBJECTS
+const myCountry = {
+  country: "USA",
+  capital: "Washington D.C.",
+  language: "English",
+  population: 300,
+  neighbors: ["Canada", "Mexico"],
+};
+
+/////////////////////////////////////////////////
+// DOT VS. BRACKET NOTATION
+// USA has 300 million english-speaking people, 2 neighboring countries and a capital called Washington D.C.
+console.log(
+  `${myCountry.country} has ${myCountry.population} million ${myCountry.language}-speaking people, ${myCountry.neighbors.length} neighboring countries and a capital called ${myCountry.capital}`
+);
+myCountry.population += 2;
+myCountry["population"] -= 2;
+console.log(myCountry.population);
+////////////////////////////////////////////////////

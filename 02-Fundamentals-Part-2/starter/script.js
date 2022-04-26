@@ -197,53 +197,53 @@ GOOD LUCK 😀
 // console.log(ryan[4]);
 
 // Exercise
-const calcAge = function (birthYeah) {
-  return 2037 - birthYeah;
-};
-const years = [1990, 1967, 2002, 2010, 2018];
+// const calcAge = function (birthYeah) {
+//   return 2037 - birthYeah;
+// };
+// const years = [1990, 1967, 2002, 2010, 2018];
 
-const age1 = calcAge(years[0]);
-const age2 = calcAge(years[1]);
-const age3 = calcAge(years[years.length - 1]);
+// const age1 = calcAge(years[0]);
+// const age2 = calcAge(years[1]);
+// const age3 = calcAge(years[years.length - 1]);
 
-console.log(age1, age2, age3);
+// console.log(age1, age2, age3);
 
-const ages = [
-  calcAge(years[0]),
-  calcAge(years[1]),
-  calcAge(years[years.length - 1]),
-];
-console.log(ages);
+// const ages = [
+//   calcAge(years[0]),
+//   calcAge(years[1]),
+//   calcAge(years[years.length - 1]),
+// ];
+// console.log(ages);
 
-const ages2 = [age1, age2, age3]; // this array is doing the same thing that the above array [ages] is doing. This just cleans the code and is much easier to write
-console.log(ages2);
+// const ages2 = [age1, age2, age3]; // this array is doing the same thing that the above array [ages] is doing. This just cleans the code and is much easier to write
+// console.log(ages2);
 
 // Basic Array Operations (Methods)
 // ---------------------------------------------------------
-const friends = ["Mike", "Steve", "Pete"];
+// const friends = ["Mike", "Steve", "Pete"];
 
-// Add Elements
-const newLength = friends.push("Jay"); // .push() adds elements to the end of a currently existing array. Also the push() value does return something. It returns the length of the new array
-console.log(friends, newLength); // ==> [new array] & 4
+// // Add Elements
+// const newLength = friends.push("Jay"); // .push() adds elements to the end of a currently existing array. Also the push() value does return something. It returns the length of the new array
+// console.log(friends, newLength); // ==> [new array] & 4
 
-friends.unshift("John");
-console.log(friends); // the unshift() method adds an element to the beginning of the array. Also returns the length of the array
+// friends.unshift("John");
+// console.log(friends); // the unshift() method adds an element to the beginning of the array. Also returns the length of the array
 
-// Remove Elements
-const popped = friends.pop(); // .pop() removes the last element of the array. Doesn't need any arguments
-console.log(friends, popped); // ==> [new array] & "element that was removed"   .pop() does return a value but unlike push() and unshift(), .pop() returns the element that was removed.
+// // Remove Elements
+// const popped = friends.pop(); // .pop() removes the last element of the array. Doesn't need any arguments
+// console.log(friends, popped); // ==> [new array] & "element that was removed"   .pop() does return a value but unlike push() and unshift(), .pop() returns the element that was removed.
 
-friends.shift(); // the shift() method removes the first element of the array. And just like pop(), the value it returns is the element that was removed
-console.log(friends);
+// friends.shift(); // the shift() method removes the first element of the array. And just like pop(), the value it returns is the element that was removed
+// console.log(friends);
 
-console.log(friends.indexOf("Pete")); // indexOf returns the position of the element(s) being called...so in this case the console should say 2. If an element which is not in the array is called it returns as -1
+// console.log(friends.indexOf("Pete")); // indexOf returns the position of the element(s) being called...so in this case the console should say 2. If an element which is not in the array is called it returns as -1
 
-console.log(friends.includes("Jay")); // the includes() method simply checks if an element is included in the array and returns true if it is and false if it's not in the array
-console.log(friends.includes("Steve")); // includes() checks for strict equalities, so if there's a number and you check that number in a string it will come back false
+// console.log(friends.includes("Jay")); // the includes() method simply checks if an element is included in the array and returns true if it is and false if it's not in the array
+// console.log(friends.includes("Steve")); // includes() checks for strict equalities, so if there's a number and you check that number in a string it will come back false
 
-if (friends.includes("Pete")) {
-  console.log("Pete is a good friend!");
-}
+// if (friends.includes("Pete")) {
+//   console.log("Pete is a good friend!");
+// }
 
 ///////////////////////////////////////
 // Coding Challenge #2
@@ -263,16 +263,62 @@ HINT: Remember that an array needs a value in each position, and that value can 
 GOOD LUCK 😀
 */
 
-const calcTip = (bill) => {
-  return bill >= 50 && bill <= 300 ? (15 / 100) * bill : (20 / 100) * bill;
-}; // this function simply checks if the bill is between 50 and 300, it adds a 15% tip. Otherwise it will add a 20% tip
+// const calcTip = (bill) => {
+//   return bill >= 50 && bill <= 300 ? (15 / 100) * bill : (20 / 100) * bill;
+// }; // this function simply checks if the bill is between 50 and 300, it adds a 15% tip. Otherwise it will add a 20% tip
 
-const bills = [125, 555, 44]; // simple array for different bills for testing purposes
-const tips = [calcTip(bills[0]), calcTip(bills[1]), calcTip(bills[2])]; // [calcTip(bills[0])] ==> this takes the function above and substitutes the actual values of bills to perform the calculation of the function
-console.log(tips); // this should log the expected tips, based off the function, in an array to the console
+// const bills = [125, 555, 44]; // simple array for different bills for testing purposes
+// const tips = [calcTip(bills[0]), calcTip(bills[1]), calcTip(bills[2])]; // [calcTip(bills[0])] ==> this takes the function above and substitutes the actual values of bills to perform the calculation of the function
+// console.log(tips); // this should log the expected tips, based off the function, in an array to the console
 
-const total = [bills[0] + tips[0], bills[1] + tips[1], bills[2] + tips[2]]; // this just adds the bills with the tips and brings us back the total
-console.log(total);
+// const total = [bills[0] + tips[0], bills[1] + tips[1], bills[2] + tips[2]]; // this just adds the bills with the tips and brings us back the total
+// console.log(total);
 
 // END CHALLENGE
 /////////////////////////////////////////////
+
+// Intro to Objects
+// ------------------------------------------------------------
+const ryan = {
+  firstName: "Ryan",
+  lastName: "Crespo",
+  age: 2022 - 1989,
+  occupation: "Software Engineer",
+  friends: ["Josh", "Daniel", "Charles"],
+}; // objects contain properties which are listed as {key: value}. every object must have this. every property is seperated by a comma and must all be wrapped in curly braces
+
+// Dot vs. Bracket Notation
+// --------------------------------------------------------------
+console.log(ryan);
+
+console.log(ryan.lastName); // DOT NOTATION ==> this brings back a single property from our object above. (lastName) ==> 'Crespo'
+console.log(ryan["lastName"]); // BRACKET NOTATION ==> this allows you to put any expression in the brackets. you're not just limited to the keys from the object...example shown below
+
+const nameKey = "Name";
+console.log(ryan["first" + nameKey]); // ==> this expression makes "firstName" which is a key with a value of "Ryan"
+console.log(ryan["last" + nameKey]); // ==> this expression makes "lastName" which is a key with a value of "Crespo"
+
+console.log(ryan);
+
+// const interestedIn = prompt(
+//   "What do you want to know about Ryan? Choose between firstName, lastName, age, occupation, and friends"
+// );
+// console.log(ryan[interestedIn]); // in the prompt in the window, when you type in any of the keys it will return its value to the console. This only works with bracket notation.... ex: if I type firstName into the prompt it will show Ryan
+
+// if (ryan[interestedIn]) {
+//   console.log(ryan[interestedIn]);
+// } else {
+//   console.log(
+//     "Wrong request! Choose between firstName, lastName, age, occupation, and friends"
+//   );
+// }
+
+ryan.location = "Miami"; // dot notation way of adding a property to the object
+ryan["twitter"] = "@rjcresp01"; // bracket notation way of adding a property to an object
+console.log(ryan);
+
+// Challenge: Log this line below to the console...
+// "Ryan has 3 friends, and his best friend is Josh"
+console.log(
+  `${ryan.firstName} has ${ryan.friends.length} friends, and his best friend is ${ryan.friends[0]}`
+);
