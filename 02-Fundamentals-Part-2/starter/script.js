@@ -325,41 +325,92 @@ GOOD LUCK 😀
 
 // Object Methods
 // ===============================================================
-const ryan = {
-  firstName: "Ryan",
-  lastName: "Crespo",
-  birthYear: 1989,
-  currentYear: 2022,
-  occupation: "Software Engineer",
-  friends: ["Josh", "Daniel", "Charles"],
-  hasDL: true,
-  // calcAge: function (birthYear) { // objects also allow you to use functions as a value of a property
-  //   return 2022 - birthYear;
-  // },
+// const ryan = {
+//   firstName: "Ryan",
+//   lastName: "Crespo",
+//   birthYear: 1989,
+//   currentYear: 2022,
+//   occupation: "Software Engineer",
+//   friends: ["Josh", "Daniel", "Charles"],
+//   hasDL: true,
+//   // calcAge: function (birthYear) { // objects also allow you to use functions as a value of a property
+//   //   return 2022 - birthYear;
+//   // },
 
-  // calcAge: function () {
-  //   console.log(this) // 'this' points to the {ryan} object because we are using ryan.calcAge below. Therefore 'this' is the entire object. So we use this.birthYear to get the birth year from the {ryan} object. Same goes for the other keys if we want to use them
-  //   return 2022 - this.birthYear
-  //   // return 2022 - ryan.birthYear  ==>> this can work to but it is not good practice to repeat yourself. So use 'this' instead. You can change the object name and 'this' will still work.
-  // }
+//   // calcAge: function () {
+//   //   console.log(this) // 'this' points to the {ryan} object because we are using ryan.calcAge below. Therefore 'this' is the entire object. So we use this.birthYear to get the birth year from the {ryan} object. Same goes for the other keys if we want to use them
+//   //   return 2022 - this.birthYear
+//   //   // return 2022 - ryan.birthYear  ==>> this can work to but it is not good practice to repeat yourself. So use 'this' instead. You can change the object name and 'this' will still work.
+//   // }
 
-  calcAge: function () {
-    this.age = this.currentYear - this.birthYear;
-    return this.age;
+//   calcAge: function () {
+//     this.age = this.currentYear - this.birthYear;
+//     return this.age;
+//   },
+//   getSummary: function () {
+//     return `${this.firstName} is a ${this.calcAge()}-year old ${this.occupation}, and he has ${this.hasDL ? 'a' : 'no'} driver's license.`
+//   } // we used this.calcAge() instead of this.age because if we're not calling ryan.age anywhere we would get back undefined. this.calcAge() runs the function and returns the age no matter what
+// };
+
+// // console.log(ryan.calcAge(ryan.age)); // dot notation
+// // console.log(ryan.age);
+// // console.log(ryan['calcAge'](1989)); // bracket notation
+
+// // console.log(ryan.calcAge(ryan.birthYear)); // dot notation
+// // console.log(ryan['calcAge'](ryan['birthYear'])); // bracket notation
+
+// // ------------------------------------------------------
+// // Challenge: log this line below to the console by creating a new function property: getSummary...
+// // "Ryan is a 33-year old Software Engineer, and he has a driver's license."
+// console.log(ryan.getSummary());
+
+/////////////////////////////////////////////
+// Coding Challenge #3
+
+/*
+Let's go back to Mark and John comparing their BMIs! This time, let's use objects to implement the calculations! Remember: BMI = mass / height ** 2 = mass / (height * height). (mass in kg and height in meter)
+
+1. For each of them, create an object with properties for their full name, mass, and height (Mark Miller and John Smith)
+2. Create a 'calcBMI' method on each object to calculate the BMI (the same method on both objects). Store the BMI value to a property, and also return it from the method.
+3. Log to the console who has the higher BMI, together with the full name and the respective BMI. Example: "John Smith's BMI (28.3) is higher than Mark Miller's (23.9)!"
+
+TEST DATA: Marks weights 78 kg and is 1.69 m tall. John weights 92 kg and is 1.95 m tall.
+
+GOOD LUCK 😀
+*/
+
+const mark = {
+  fullName: "Mark Miller",
+  mass: 78,
+  height: 1.69,
+  calcBMI: function () {
+    this.bmi = this.mass / (this.height * this.height);
+    return this.bmi;
   },
-  getSummary: function () {
-    return `${this.firstName} is a ${this.calcAge()}-year old ${this.occupation}, and he has ${this.hasDL ? 'a' : 'no'} driver's license.`
-  } // we used this.calcAge() instead of this.age because if we're not calling ryan.age anywhere we would get back undefined. this.calcAge() runs the function and returns the age no matter what
 };
 
-// console.log(ryan.calcAge(ryan.age)); // dot notation
-// console.log(ryan.age);
-// console.log(ryan['calcAge'](1989)); // bracket notation
+const john = {
+  fullName: "John Smith",
+  mass: 92,
+  height: 1.95,
+  calcBMI: function () {
+    this.bmi = this.mass / (this.height * this.height);
+    return this.bmi;
+  },
+};
+mark.calcBMI();
+john.calcBMI();
+console.log(mark.bmi, john.bmi);
 
-// console.log(ryan.calcAge(ryan.birthYear)); // dot notation
-// console.log(ryan['calcAge'](ryan['birthYear'])); // bracket notation
+if (john.bmi > mark.bmi) {
+  console.log(
+    `${john.fullName}'s BMI(${john.bmi}) is higher than ${mark.fullName}'s BMI(${mark.bmi})`
+  );
+} else {
+  console.log(
+    `${mark.fullName}'s BMI(${mark.bmi}) is higher than ${john.fullName}'s BMI(${john.bmi})`
+  );
+}
 
-// ------------------------------------------------------
-// Challenge: log this line below to the console by creating a new function property: getSummary...
-// "Ryan is a 33-year old Software Engineer, and he has a driver's license."
-console.log(ryan.getSummary());
+// END CODING CHALLENGE
+///////////////////////////////////////////////
