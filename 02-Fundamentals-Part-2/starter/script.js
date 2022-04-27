@@ -1,5 +1,5 @@
 // Activating Strict Mode
-// ------------------------------------------------------
+// ===============================================================
 "use strict";
 
 // let hasDriversLicense = false;
@@ -12,7 +12,7 @@
 // const private = 633;
 
 // Functions
-// ------------------------------------------------------
+// ===============================================================
 // function logger() {
 //     console.log('My name is Ryan');
 // };
@@ -37,7 +37,7 @@
 // console.log(num);
 
 // Function Declarations vs. Expressions
-// -------------------------------------------------------
+// ===============================================================
 
 // Function Declaration
 
@@ -57,7 +57,7 @@
 // console.log(age2);
 
 // Arrow Functions
-// ----------------------------------------------------------
+// ===============================================================
 // const calcAge3 = birthYear => 2037 - birthYear; // serves the same purpose as the function above but it is much cleaner and a lot easier to write
 // const age3 = calcAge3(1989);
 // console.log(age3);
@@ -73,7 +73,7 @@
 // console.log(yearsUntilRetire(1979, 'Jim'));
 
 // Fucntions Calling Other Functions
-// --------------------------------------------------------
+// ===============================================================
 // function cutFruit(fruit) { // the parameter "2" which we are calling at the end of the function is being used as a parameter here. so it is replacing fruit in both lines
 //     return fruit * 5; // this line turns into return 2 * 4 or return 3 * 4. depending on the value which you give when you call the function. in our case we gave it two values...2 and 3.
 // };
@@ -89,7 +89,7 @@
 // console.log(foodProcessor(2, 3)); // the 2 will replace the apples parameters in the foodProcessor function and same thing with the 3 and orange parameters
 
 // Reviewing Functions
-// -------------------------------------------------------------
+// ===============================================================
 // const calcAge = function (birthYeah) {
 //   return 2037 - birthYeah;
 // };
@@ -165,7 +165,7 @@ GOOD LUCK 😀
 ////////////////////////////////////////////////
 
 // Intro to Arrays
-// --------------------------------------------------------
+// ===============================================================
 
 // const friend1 = "Michael";
 // const friend2 = "Steve";
@@ -219,7 +219,7 @@ GOOD LUCK 😀
 // console.log(ages2);
 
 // Basic Array Operations (Methods)
-// ---------------------------------------------------------
+// ===============================================================
 // const friends = ["Mike", "Steve", "Pete"];
 
 // // Add Elements
@@ -278,27 +278,27 @@ GOOD LUCK 😀
 /////////////////////////////////////////////
 
 // Intro to Objects
-// ------------------------------------------------------------
-const ryan = {
-  firstName: "Ryan",
-  lastName: "Crespo",
-  age: 2022 - 1989,
-  occupation: "Software Engineer",
-  friends: ["Josh", "Daniel", "Charles"],
-}; // objects contain properties which are listed as {key: value}. every object must have this. every property is seperated by a comma and must all be wrapped in curly braces
+// ===============================================================
+// const ryan = {
+//   firstName: "Ryan",
+//   lastName: "Crespo",
+//   age: 2022 - 1989,
+//   occupation: "Software Engineer",
+//   friends: ["Josh", "Daniel", "Charles"],
+// }; // objects contain properties which are listed as {key: value}. every object must have this. every property is seperated by a comma and must all be wrapped in curly braces
 
 // Dot vs. Bracket Notation
-// --------------------------------------------------------------
-console.log(ryan);
+// ===============================================================
+// console.log(ryan);
 
-console.log(ryan.lastName); // DOT NOTATION ==> this brings back a single property from our object above. (lastName) ==> 'Crespo'
-console.log(ryan["lastName"]); // BRACKET NOTATION ==> this allows you to put any expression in the brackets. you're not just limited to the keys from the object...example shown below
+// console.log(ryan.lastName); // DOT NOTATION ==> this brings back a single property from our object above. (lastName) ==> 'Crespo'
+// console.log(ryan["lastName"]); // BRACKET NOTATION ==> this allows you to put any expression in the brackets. you're not just limited to the keys from the object...example shown below
 
-const nameKey = "Name";
-console.log(ryan["first" + nameKey]); // ==> this expression makes "firstName" which is a key with a value of "Ryan"
-console.log(ryan["last" + nameKey]); // ==> this expression makes "lastName" which is a key with a value of "Crespo"
+// const nameKey = "Name";
+// console.log(ryan["first" + nameKey]); // ==> this expression makes "firstName" which is a key with a value of "Ryan"
+// console.log(ryan["last" + nameKey]); // ==> this expression makes "lastName" which is a key with a value of "Crespo"
 
-console.log(ryan);
+// console.log(ryan);
 
 // const interestedIn = prompt(
 //   "What do you want to know about Ryan? Choose between firstName, lastName, age, occupation, and friends"
@@ -313,12 +313,53 @@ console.log(ryan);
 //   );
 // }
 
-ryan.location = "Miami"; // dot notation way of adding a property to the object
-ryan["twitter"] = "@rjcresp01"; // bracket notation way of adding a property to an object
-console.log(ryan);
+// ryan.location = "Miami"; // dot notation way of adding a property to the object
+// ryan["twitter"] = "@rjcresp01"; // bracket notation way of adding a property to an object
+// console.log(ryan);
 
-// Challenge: Log this line below to the console...
-// "Ryan has 3 friends, and his best friend is Josh"
-console.log(
-  `${ryan.firstName} has ${ryan.friends.length} friends, and his best friend is ${ryan.friends[0]}`
-);
+// // Challenge: Log this line below to the console...
+// // "Ryan has 3 friends, and his best friend is Josh"
+// console.log(
+//   `${ryan.firstName} has ${ryan.friends.length} friends, and his best friend is ${ryan.friends[0]}`
+// );
+
+// Object Methods
+// ===============================================================
+const ryan = {
+  firstName: "Ryan",
+  lastName: "Crespo",
+  birthYear: 1989,
+  currentYear: 2022,
+  occupation: "Software Engineer",
+  friends: ["Josh", "Daniel", "Charles"],
+  hasDL: true,
+  // calcAge: function (birthYear) { // objects also allow you to use functions as a value of a property
+  //   return 2022 - birthYear;
+  // },
+
+  // calcAge: function () {
+  //   console.log(this) // 'this' points to the {ryan} object because we are using ryan.calcAge below. Therefore 'this' is the entire object. So we use this.birthYear to get the birth year from the {ryan} object. Same goes for the other keys if we want to use them
+  //   return 2022 - this.birthYear
+  //   // return 2022 - ryan.birthYear  ==>> this can work to but it is not good practice to repeat yourself. So use 'this' instead. You can change the object name and 'this' will still work.
+  // }
+
+  calcAge: function () {
+    this.age = this.currentYear - this.birthYear;
+    return this.age;
+  },
+  getSummary: function () {
+    return `${this.firstName} is a ${this.calcAge()}-year old ${this.occupation}, and he has ${this.hasDL ? 'a' : 'no'} driver's license.`
+  } // we used this.calcAge() instead of this.age because if we're not calling ryan.age anywhere we would get back undefined. this.calcAge() runs the function and returns the age no matter what
+};
+
+// console.log(ryan.calcAge(ryan.age)); // dot notation
+// console.log(ryan.age);
+// console.log(ryan['calcAge'](1989)); // bracket notation
+
+// console.log(ryan.calcAge(ryan.birthYear)); // dot notation
+// console.log(ryan['calcAge'](ryan['birthYear'])); // bracket notation
+
+// ------------------------------------------------------
+// Challenge: log this line below to the console by creating a new function property: getSummary...
+// "Ryan is a 33-year old Software Engineer, and he has a driver's license."
+console.log(ryan.getSummary());
