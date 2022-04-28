@@ -364,6 +364,7 @@ GOOD LUCK 😀
 // // "Ryan is a 33-year old Software Engineer, and he has a driver's license."
 // console.log(ryan.getSummary());
 
+
 /////////////////////////////////////////////
 // Coding Challenge #3
 

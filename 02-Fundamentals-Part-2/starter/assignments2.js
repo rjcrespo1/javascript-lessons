@@ -74,44 +74,67 @@
 
 ////////////////////////////////////////////
 // BASIC ARRAY OPERATIONS
-const neighbors = ["Italy", "Spain", "Belgium"];
+// const neighbors = ["Italy", "Spain", "Belgium"];
 
-neighbors.push("Utopia");
-console.log(neighbors);
+// neighbors.push("Utopia");
+// console.log(neighbors);
 
-neighbors.pop();
-console.log(neighbors);
+// neighbors.pop();
+// console.log(neighbors);
 
-if (!neighbors.includes("Germany")) {
-  console.log("Probably not a Central European Country");
-} else {
-  console.log("Is probably a Central European Country");
-}
+// if (!neighbors.includes("Germany")) {
+//   console.log("Probably not a Central European Country");
+// } else {
+//   console.log("Is probably a Central European Country");
+// }
 
-neighbors[neighbors.indexOf("Spain")] = "Republic of Spain";
-console.log(neighbors);
+// neighbors[neighbors.indexOf("Spain")] = "Republic of Spain";
+// console.log(neighbors);
 ////////////////////////////////////////////////////
 
 //////////////////////////////////////////////////
 // INTRO TO OBJECTS
+// const myCountry = {
+//   country: "USA",
+//   capital: "Washington D.C.",
+//   language: "English",
+//   population: 300,
+//   neighbors: ["Canada", "Mexico"],
+// };
+
+/////////////////////////////////////////////////
+// DOT VS. BRACKET NOTATION
+// USA has 300 million english-speaking people, 2 neighboring countries and a capital called Washington D.C.
+// console.log(
+//   `${myCountry.country} has ${myCountry.population} million ${myCountry.language}-speaking people, ${myCountry.neighbors.length} neighboring countries and a capital called ${myCountry.capital}`
+// );
+// myCountry.population += 2;
+// myCountry["population"] -= 2;
+// console.log(myCountry.population);
+////////////////////////////////////////////////////
+
+/////////////////////////////////////////////////
+// OBJECT METHODS
 const myCountry = {
   country: "USA",
   capital: "Washington D.C.",
   language: "English",
   population: 300,
   neighbors: ["Canada", "Mexico"],
+
+  describe: function () {
+    return `${this.country} has ${this.population} million ${this.language}-speaking people, ${this.neighbors.length} neighbouring countries and a capital called ${this.capital}`;
+  },
+
+  checkIsland: function () {
+    this.isIsland = this.neighbors.length === 0 ? true : false;
+    return this.isIsland;
+  },
 };
 
-/////////////////////////////////////////////////
-// DOT VS. BRACKET NOTATION
-// USA has 300 million english-speaking people, 2 neighboring countries and a capital called Washington D.C.
-console.log(
-  `${myCountry.country} has ${myCountry.population} million ${myCountry.language}-speaking people, ${myCountry.neighbors.length} neighboring countries and a capital called ${myCountry.capital}`
-);
-myCountry.population += 2;
-myCountry["population"] -= 2;
-console.log(myCountry.population);
-////////////////////////////////////////////////////
+console.log(myCountry.describe());
+console.log(myCountry.checkIsland(myCountry.island)); // one way of calling the function
 
-/////////////////////////////////////////////////
-// OBJECT METHODS
+myCountry.checkIsland();
+console.log(myCountry.isIsland); // another way of calling the function
+//////////////////////////////////////////////////////
