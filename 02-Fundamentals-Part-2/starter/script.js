@@ -364,7 +364,6 @@ GOOD LUCK 😀
 // // "Ryan is a 33-year old Software Engineer, and he has a driver's license."
 // console.log(ryan.getSummary());
 
-
 /////////////////////////////////////////////
 // Coding Challenge #3
 
@@ -415,3 +414,24 @@ if (john.bmi > mark.bmi) {
 
 // END CODING CHALLENGE
 ///////////////////////////////////////////////
+
+// Iteration: The For Loop
+// ================================================================
+// console.log("Lifting weights repetition 1 🏋️‍♀️");
+// console.log("Lifting weights repetition 2 🏋️‍♀️");
+// console.log("Lifting weights repetition 3 🏋️‍♀️");
+// console.log("Lifting weights repetition 4 🏋️‍♀️");
+// console.log("Lifting weights repetition 5 🏋️‍♀️");
+// console.log("Lifting weights repetition 6 🏋️‍♀️");
+// console.log("Lifting weights repetition 7 🏋️‍♀️");
+// console.log("Lifting weights repetition 8 🏋️‍♀️");
+// console.log("Lifting weights repetition 9 🏋️‍♀️");
+// console.log("Lifting weights repetition 10 🏋️‍♀️");
+
+// The loop has three parts. The first is the initial value of a counter. Basically just setting a variable for a counter.
+// The second is a logical condition that is evaluated before each iteration of the loop. The for loop will keep running as long as that condition stays TRUE.
+// The third is where we update the counter after each iteration.
+// After the loop, you can now write the code that you want repeated...or "looped"
+for (let rep = 1; rep <= 10; rep++) { // rep++ is the same as doing rep = rep + 1. Just much shorter and cleaner to use rep++
+  console.log(`Lifting weights repetition ${rep} 🏋️‍♀️`); // this prints all those console logs that we hard coded above, to the console.
+} // we set rep at 1 and set the condition to stop once it got to 10 (rep <= 10) and we increased each increment of the loop by 1 (rep++).

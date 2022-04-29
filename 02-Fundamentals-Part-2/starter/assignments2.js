@@ -138,3 +138,10 @@ console.log(myCountry.checkIsland(myCountry.island)); // one way of calling the 
 myCountry.checkIsland();
 console.log(myCountry.isIsland); // another way of calling the function
 //////////////////////////////////////////////////////
+
+//////////////////////////////////////////////////////
+// ITERATION: THE FOR LOOP
+// for (let i = 1; i <= 50; i++) {
+//   console.log(`Voter number ${i} is voting`)
+// }
+//////////////////////////////////////////////////////
