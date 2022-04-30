@@ -60,9 +60,9 @@
 // const populations = [300, 46, 1400, 59];
 // console.log(populations.length === 4);
 
-// function percentageOfWorld1(population) {
-//   return (population / 7900) * 100;
-// }
+function percentageOfWorld1(population) {
+  return (population / 7900) * 100;
+}
 // const percentages = [
 //   percentageOfWorld1(populations[0]),
 //   percentageOfWorld1(populations[1]),
@@ -115,28 +115,28 @@
 
 /////////////////////////////////////////////////
 // OBJECT METHODS
-const myCountry = {
-  country: "USA",
-  capital: "Washington D.C.",
-  language: "English",
-  population: 300,
-  neighbors: ["Canada", "Mexico"],
+// const myCountry = {
+//   country: "USA",
+//   capital: "Washington D.C.",
+//   language: "English",
+//   population: 300,
+//   neighbors: ["Canada", "Mexico"],
 
-  describe: function () {
-    return `${this.country} has ${this.population} million ${this.language}-speaking people, ${this.neighbors.length} neighbouring countries and a capital called ${this.capital}`;
-  },
+//   describe: function () {
+//     return `${this.country} has ${this.population} million ${this.language}-speaking people, ${this.neighbors.length} neighbouring countries and a capital called ${this.capital}`;
+//   },
 
-  checkIsland: function () {
-    this.isIsland = this.neighbors.length === 0 ? true : false;
-    return this.isIsland;
-  },
-};
+//   checkIsland: function () {
+//     this.isIsland = this.neighbors.length === 0 ? true : false;
+//     return this.isIsland;
+//   },
+// };
 
-console.log(myCountry.describe());
-console.log(myCountry.checkIsland(myCountry.island)); // one way of calling the function
+// console.log(myCountry.describe());
+// console.log(myCountry.checkIsland(myCountry.island)); // one way of calling the function
 
-myCountry.checkIsland();
-console.log(myCountry.isIsland); // another way of calling the function
+// myCountry.checkIsland();
+// console.log(myCountry.isIsland); // another way of calling the function
 //////////////////////////////////////////////////////
 
 //////////////////////////////////////////////////////
@@ -145,3 +145,14 @@ console.log(myCountry.isIsland); // another way of calling the function
 //   console.log(`Voter number ${i} is voting`)
 // }
 //////////////////////////////////////////////////////
+
+/////////////////////////////////////////////////////////
+// LOOPING ARRAYS, BREAKING AND CONTINUING
+const populations = [300, 46, 1400, 59];
+const percentages2 = [];
+
+for (let i = 0; i < populations.length; i++) {
+  const perc = percentageOfWorld1(populations[i])
+  percentages2.push(perc)
+}
+console.log(percentages2)

@@ -11,6 +11,7 @@
 // const interface = 'Audio';
 // const private = 633;
 
+
 // Functions
 // ===============================================================
 // function logger() {
@@ -36,6 +37,7 @@
 // const num = Number('23');
 // console.log(num);
 
+
 // Function Declarations vs. Expressions
 // ===============================================================
 
@@ -55,6 +57,7 @@
 
 // const age2 = calcAge2(1991);
 // console.log(age2);
+
 
 // Arrow Functions
 // ===============================================================
@@ -88,6 +91,7 @@
 
 // console.log(foodProcessor(2, 3)); // the 2 will replace the apples parameters in the foodProcessor function and same thing with the 3 and orange parameters
 
+
 // Reviewing Functions
 // ===============================================================
 // const calcAge = function (birthYeah) {
@@ -109,6 +113,7 @@
 
 // console.log(yearsUntilRetirement(1991, "Jonas"));
 // console.log(yearsUntilRetirement(1950, "Mike"));
+
 
 ////////////////////////////////////////////
 // Coding Challenge #1
@@ -164,6 +169,7 @@ GOOD LUCK 😀
 // END CHALLENGE
 ////////////////////////////////////////////////
 
+
 // Intro to Arrays
 // ===============================================================
 
@@ -218,6 +224,7 @@ GOOD LUCK 😀
 // const ages2 = [age1, age2, age3]; // this array is doing the same thing that the above array [ages] is doing. This just cleans the code and is much easier to write
 // console.log(ages2);
 
+
 // Basic Array Operations (Methods)
 // ===============================================================
 // const friends = ["Mike", "Steve", "Pete"];
@@ -244,6 +251,7 @@ GOOD LUCK 😀
 // if (friends.includes("Pete")) {
 //   console.log("Pete is a good friend!");
 // }
+
 
 ///////////////////////////////////////
 // Coding Challenge #2
@@ -277,6 +285,7 @@ GOOD LUCK 😀
 // END CHALLENGE
 /////////////////////////////////////////////
 
+
 // Intro to Objects
 // ===============================================================
 // const ryan = {
@@ -286,6 +295,7 @@ GOOD LUCK 😀
 //   occupation: "Software Engineer",
 //   friends: ["Josh", "Daniel", "Charles"],
 // }; // objects contain properties which are listed as {key: value}. every object must have this. every property is seperated by a comma and must all be wrapped in curly braces
+
 
 // Dot vs. Bracket Notation
 // ===============================================================
@@ -322,6 +332,7 @@ GOOD LUCK 😀
 // console.log(
 //   `${ryan.firstName} has ${ryan.friends.length} friends, and his best friend is ${ryan.friends[0]}`
 // );
+
 
 // Object Methods
 // ===============================================================
@@ -364,6 +375,7 @@ GOOD LUCK 😀
 // // "Ryan is a 33-year old Software Engineer, and he has a driver's license."
 // console.log(ryan.getSummary());
 
+
 /////////////////////////////////////////////
 // Coding Challenge #3
 
@@ -379,41 +391,42 @@ TEST DATA: Marks weights 78 kg and is 1.69 m tall. John weights 92 kg and is 1.9
 GOOD LUCK 😀
 */
 
-const mark = {
-  fullName: "Mark Miller",
-  mass: 78,
-  height: 1.69,
-  calcBMI: function () {
-    this.bmi = this.mass / (this.height * this.height);
-    return this.bmi;
-  },
-};
+// const mark = {
+//   fullName: "Mark Miller",
+//   mass: 78,
+//   height: 1.69,
+//   calcBMI: function () {
+//     this.bmi = this.mass / (this.height * this.height);
+//     return this.bmi;
+//   },
+// };
 
-const john = {
-  fullName: "John Smith",
-  mass: 92,
-  height: 1.95,
-  calcBMI: function () {
-    this.bmi = this.mass / (this.height * this.height);
-    return this.bmi;
-  },
-};
-mark.calcBMI();
-john.calcBMI();
-console.log(mark.bmi, john.bmi);
+// const john = {
+//   fullName: "John Smith",
+//   mass: 92,
+//   height: 1.95,
+//   calcBMI: function () {
+//     this.bmi = this.mass / (this.height * this.height);
+//     return this.bmi;
+//   },
+// };
+// mark.calcBMI();
+// john.calcBMI();
+// console.log(mark.bmi, john.bmi);
 
-if (john.bmi > mark.bmi) {
-  console.log(
-    `${john.fullName}'s BMI(${john.bmi}) is higher than ${mark.fullName}'s BMI(${mark.bmi})`
-  );
-} else {
-  console.log(
-    `${mark.fullName}'s BMI(${mark.bmi}) is higher than ${john.fullName}'s BMI(${john.bmi})`
-  );
-}
+// if (john.bmi > mark.bmi) {
+//   console.log(
+//     `${john.fullName}'s BMI(${john.bmi}) is higher than ${mark.fullName}'s BMI(${mark.bmi})`
+//   );
+// } else {
+//   console.log(
+//     `${mark.fullName}'s BMI(${mark.bmi}) is higher than ${john.fullName}'s BMI(${john.bmi})`
+//   );
+// }
 
 // END CODING CHALLENGE
 ///////////////////////////////////////////////
+
 
 // Iteration: The For Loop
 // ================================================================
@@ -432,6 +445,62 @@ if (john.bmi > mark.bmi) {
 // The second is a logical condition that is evaluated before each iteration of the loop. The for loop will keep running as long as that condition stays TRUE.
 // The third is where we update the counter after each iteration.
 // After the loop, you can now write the code that you want repeated...or "looped"
-for (let rep = 1; rep <= 10; rep++) { // rep++ is the same as doing rep = rep + 1. Just much shorter and cleaner to use rep++
-  console.log(`Lifting weights repetition ${rep} 🏋️‍♀️`); // this prints all those console logs that we hard coded above, to the console.
-} // we set rep at 1 and set the condition to stop once it got to 10 (rep <= 10) and we increased each increment of the loop by 1 (rep++).
+// for (let rep = 1; rep <= 10; rep++) {
+//   // rep++ is the same as doing rep = rep + 1. Just much shorter and cleaner to use rep++
+//   console.log(`Lifting weights repetition ${rep} 🏋️‍♀️`); // this prints all those console logs that we hard coded above, to the console.
+// } // we set rep at 1 and set the condition to stop once it got to 10 (rep <= 10) and we increased each increment of the loop by 1 (rep++).
+
+
+// Looping Arrays, Breaking and Continuing
+// ==================================================================
+const ryan = [
+  "Ryan",
+  "Crespo",
+  2022 - 1989,
+  "Software Engineer",
+  ["Michael", "Peter", "Steven"],
+  true,
+];
+
+const types = []; // this array will be based on the [ryan] array so we are using the same for loop for this
+
+// console.log(ryan[0])
+// console.log(ryan[1])
+// console.log(ryan[2]) // this is how we would normally go through the array without the for loop...0, 1, 2.....so on and so on
+// ryan[5] does not exist. We want to loop through this array until we hit the final item in it, which is [4]
+
+for (let i = 0; i < ryan.length; i++) {
+  // Reading from the "ryan" array
+  console.log(ryan[i], typeof ryan[i]); // this loop will display everything in the array on seperate lines and the type of element to go along with it
+
+  // Filling the empty "types" array
+  types[i] = typeof ryan[i]; // ==> this is types[0] = typeof ryan[0]...and then 1 and 2 and 3...so on and so forth
+  // types.push(typeof ryan[i]) // this is just a different way of filling the empty "types" array. Also be sure to use push and not unshift
+  // types.unshift(typeof ryan[i]) // this would give us the same elements as before but we would get them in reverse
+}
+
+console.log(types);
+
+const years = [1989, 2007, 1969, 2020];
+const ages = [];
+
+for (let i = 0; i < years.length; i++) {
+  ages.push(2037 - years[i]);
+}
+console.log(ages);
+
+// continue ==> exit the current iteration of the loop and continue to the next one
+console.log("--- ONLY STRINGS ---");
+for (let i = 0; i < ryan.length; i++) {
+  if (typeof ryan[i] !== "string") continue; // if the type of the current element (ryan[i]) is not a string (!== 'string') then continue ==> the current iteration of the loop is exited, then the next one starts immediately
+
+  console.log(ryan[i], typeof ryan[i]);
+}
+
+// break ==> completely terminates the entire loop
+console.log("--- BREAK WITH NUMBER ---");
+for (let i = 0; i < ryan.length; i++) {
+  if (typeof ryan[i] === "number") break; // as soon as a number is found we want to break the loop. So this should only return two elements because there are two elements before we get any numbers
+
+  console.log(ryan[i], typeof ryan[i]);
+}
