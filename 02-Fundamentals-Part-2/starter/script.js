@@ -453,54 +453,152 @@ GOOD LUCK 😀
 
 // Looping Arrays, Breaking and Continuing
 // ==================================================================
-const ryan = [
-  "Ryan",
-  "Crespo",
-  2022 - 1989,
-  "Software Engineer",
-  ["Michael", "Peter", "Steven"],
-  true,
-];
+// const ryan = [
+//   "Ryan",
+//   "Crespo",
+//   2022 - 1989,
+//   "Software Engineer",
+//   ["Michael", "Peter", "Steven"],
+//   true,
+// ];
 
-const types = []; // this array will be based on the [ryan] array so we are using the same for loop for this
+// const types = []; // this array will be based on the [ryan] array so we are using the same for loop for this
 
 // console.log(ryan[0])
 // console.log(ryan[1])
 // console.log(ryan[2]) // this is how we would normally go through the array without the for loop...0, 1, 2.....so on and so on
 // ryan[5] does not exist. We want to loop through this array until we hit the final item in it, which is [4]
 
-for (let i = 0; i < ryan.length; i++) {
+// for (let i = 0; i < ryan.length; i++) {
   // Reading from the "ryan" array
-  console.log(ryan[i], typeof ryan[i]); // this loop will display everything in the array on seperate lines and the type of element to go along with it
+  // console.log(ryan[i], typeof ryan[i]); // this loop will display everything in the array on seperate lines and the type of element to go along with it
 
   // Filling the empty "types" array
-  types[i] = typeof ryan[i]; // ==> this is types[0] = typeof ryan[0]...and then 1 and 2 and 3...so on and so forth
+  // types[i] = typeof ryan[i]; // ==> this is types[0] = typeof ryan[0]...and then 1 and 2 and 3...so on and so forth
   // types.push(typeof ryan[i]) // this is just a different way of filling the empty "types" array. Also be sure to use push and not unshift
   // types.unshift(typeof ryan[i]) // this would give us the same elements as before but we would get them in reverse
-}
+// }
 
-console.log(types);
+// console.log(types);
 
-const years = [1989, 2007, 1969, 2020];
-const ages = [];
+// const years = [1989, 2007, 1969, 2020];
+// const ages = [];
 
-for (let i = 0; i < years.length; i++) {
-  ages.push(2037 - years[i]);
-}
-console.log(ages);
+// for (let i = 0; i < years.length; i++) {
+//   ages.push(2037 - years[i]);
+// }
+// console.log(ages);
 
 // continue ==> exit the current iteration of the loop and continue to the next one
-console.log("--- ONLY STRINGS ---");
-for (let i = 0; i < ryan.length; i++) {
-  if (typeof ryan[i] !== "string") continue; // if the type of the current element (ryan[i]) is not a string (!== 'string') then continue ==> the current iteration of the loop is exited, then the next one starts immediately
-
-  console.log(ryan[i], typeof ryan[i]);
-}
+// console.log("--- ONLY STRINGS ---");
+// for (let i = 0; i < ryan.length; i++) {
+//   if (typeof ryan[i] !== "string") continue; // if the type of the current element (ryan[i]) is not a string (!== 'string') then continue ==> the current iteration of the loop is exited, then the next one starts immediately
+  
+//   console.log(ryan[i], typeof ryan[i]);
+// }
 
 // break ==> completely terminates the entire loop
-console.log("--- BREAK WITH NUMBER ---");
-for (let i = 0; i < ryan.length; i++) {
-  if (typeof ryan[i] === "number") break; // as soon as a number is found we want to break the loop. So this should only return two elements because there are two elements before we get any numbers
+// console.log("--- BREAK WITH NUMBER ---");
+// for (let i = 0; i < ryan.length; i++) {
+//   if (typeof ryan[i] === "number") break; // as soon as a number is found we want to break the loop. So this should only return two elements because there are two elements before we get any numbers
 
-  console.log(ryan[i], typeof ryan[i]);
+//   console.log(ryan[i], typeof ryan[i]);
+// }
+
+
+// Looping Backwards and Loops inside Loops
+// ===================================================================
+// const ryan = [
+//   "Ryan",
+//   "Crespo",
+//   2022 - 1989,
+//   "Software Engineer",
+//   ["Michael", "Peter", "Steven"],
+// ];
+
+// // 4, 3, ..., 0; --- looping backwards
+
+// for (let i = ryan.length - 1; i >= 0; i--) {
+//   console.log(ryan[i]);
+// }
+
+// // using a loop inside of a loop
+// for (let ex = 1; ex <= 4; ex++) {
+//   console.log(`===== Starting Exercise ${ex} =====`);
+
+//   for (let rep = 1; rep < 6; rep++) {
+//     console.log(`--- Ecercise ${ex}: Lifting weights repitition ${rep} ---`)
+//   }
+// }
+
+
+// The While Loop
+// ========================================================================
+// for (let rep = 1; rep <= 10; rep++) {
+//   console.log(`Lifting weights repetition ${rep} 🏋️‍♀️`);
+// }
+
+// let rep = 1;
+// while (rep <= 10) {
+//   // console.log(`WHILE: Lifting weights repetition ${rep} 🏋️‍♀️`);
+//   rep++;
+// } // in a while loop we can only specify a condition. We don't use let i = 0; or i++. The loop only runs WHILE the condition that is stated is true 
+
+// let dice = Math.trunc(Math.random() * 6) + 1; // this will generate a random number between 1 - 6. Like a dice
+// // console.log(dice);
+
+// while (dice !== 6) {
+//   console.log(`You rolled a ${dice}`)
+//   dice = Math.trunc(Math.random() * 6) + 1;
+//   if (dice === 6) console.log(`You rolled a ${dice}...loop is now ending`)
+// } // all this loop is doing is testing for whenever the dice is rolled, if it isn't a 6 it will keep going until it hits a 6 then it breaks
+
+
+////////////////////////////////////////////////
+// Coding Challenge #4
+
+/*
+Let's improve Steven's tip calculator even more, this time using loops!
+
+1. Create an array 'bills' containing all 10 test bill values
+2. Create empty arrays for the tips and the totals ('tips' and 'totals')
+3. Use the 'calcTip' function we wrote before (no need to repeat) to calculate tips and total values (bill + tip) for every bill value in the bills array. Use a for loop to perform the 10 calculations!
+
+TEST DATA: 22, 295, 176, 440, 37, 105, 10, 1100, 86 and 52
+
+HINT: Call calcTip in the loop and use the push method to add values to the tips and totals arrays 😉
+
+4. BONUS: Write a function 'calcAverage' which takes an array called 'arr' as an argument. This function calculates the average of all numbers in the given array. This is a DIFFICULT challenge (we haven't done this before)! Here is how to solve it:
+  4.1. First, you will need to add up all values in the array. To do the addition, start by creating a variable 'sum' that starts at 0. Then loop over the array using a for loop. In each iteration, add the current value to the 'sum' variable. This way, by the end of the loop, you have all values added together
+  4.2. To calculate the average, divide the sum you calculated before by the length of the array (because that's the number of elements)
+  4.3. Call the function with the 'totals' array
+
+GOOD LUCK 😀
+*/
+const calcTip = function (bill) {
+  return bill >= 50 && bill <= 300 ? bill * 0.15 : bill * 0.2;
 }
+
+const bills = [22, 295, 176, 440, 37, 105, 10, 1100, 86, 52];
+const tips = [];
+const totals = [];
+
+for (let i = 0; i < bills.length; i++) {
+  const tip = calcTip(bills[i])
+  tips.push(tip)
+  totals.push(tip + bills[i])
+}
+console.log(bills, tips, totals)
+ // BONUS:
+const calcAverage = function (arr) {
+  let sum = 0;
+  for (let i = 0; i < arr.length; i++) {
+    // sum = sum + arr[i];
+    sum += arr[i]; // this does exactly what the line above is doing 
+  }
+  // console.log(sum)
+  return sum / arr.length
+}
+// console.log(calcAverage([5, 5, 5]))
+console.log(calcAverage(totals))
+console.log(calcAverage(tips))

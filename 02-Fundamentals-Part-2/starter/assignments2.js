@@ -60,9 +60,9 @@
 // const populations = [300, 46, 1400, 59];
 // console.log(populations.length === 4);
 
-function percentageOfWorld1(population) {
-  return (population / 7900) * 100;
-}
+// function percentageOfWorld1(population) {
+//   return (population / 7900) * 100;
+// }
 // const percentages = [
 //   percentageOfWorld1(populations[0]),
 //   percentageOfWorld1(populations[1]),
@@ -148,11 +148,47 @@ function percentageOfWorld1(population) {
 
 /////////////////////////////////////////////////////////
 // LOOPING ARRAYS, BREAKING AND CONTINUING
-const populations = [300, 46, 1400, 59];
-const percentages2 = [];
+// const populations = [300, 46, 1400, 59];
+// const percentages2 = [];
 
-for (let i = 0; i < populations.length; i++) {
-  const perc = percentageOfWorld1(populations[i])
-  percentages2.push(perc)
+// for (let i = 0; i < populations.length; i++) {
+//   const perc = percentageOfWorld1(populations[i])
+//   percentages2.push(perc)
+// }
+// console.log(percentages2)
+//////////////////////////////////////////////////////
+
+//////////////////////////////////////////////////////
+// LOOPING BACKWARDS AND LOOPS INSIDE LOOPS
+// const listOfNeighbors = [
+//   ['Canada', 'Mexico'],
+//   ['Spain'],
+//   ['Norway', 'Sweden', 'Russia']
+// ]
+// console.log(listOfNeighbors[0])
+// console.log(listOfNeighbors[1])
+// console.log(listOfNeighbors[2])
+
+// for (let i = 0; i < listOfNeighbors.length; i++) // this loop just goes through the array and gives us the index of each [element] in the array.
+// // console.log('i:', i)
+//   for (let j = 0; j < listOfNeighbors[i].length; j++) // this loop goes through the previous loop and gets the index of each element inside each [array] inside the main array.
+//   // console.log('j:', j)
+//     console.log(`Neighbor: ${listOfNeighbors[i][j]}`);
+////////////////////////////////////////////////////////
+
+////////////////////////////////////////////////////////
+// THE WHILE LOOP
+function percentageOfWorld1(population) {
+  return (population / 7900) * 100;
 }
-console.log(percentages2)
+const populations = [300, 46, 1400, 59];
+const percentages3 = [];
+
+let i = 0;
+while (i < populations.length) { // while the index is less than the populations array ==> 4 (i < populations.length)
+  const perc = percentageOfWorld1(populations[i]) // this just gets us the index of each element in populations array and inputs it into the function percentagesOfWorld1 and runs the equation in there
+  // console.log(perc)
+  percentages3.push(perc) // we are pushing the result of perc (percentagesOfWorld1(populations[i])) into the empty array of percentages3
+  i++
+}
+console.log(percentages3)
