@@ -81,8 +81,9 @@ const measureKelvin = function () {
     unit: 'celsius',
 
     // 3) FIX THE BUG ==> NOW THAT YOU FOUND THE BUG YOU CAN GO BACK IN YOUR CODE AND FIX IT
-    value: Number(prompt('Degrees in Celsius:')), // the prompt function always returns a string by default which is why we get back 10273. ("10" + "273") = "10273"
+    // value: Number(prompt('Degrees in Celsius:')), // the prompt function always returns a string by default which is why we get back 10273. ("10" + "273") = "10273"
     // added Number() in the prompt to convert the string to a number
+    value: 10
   };
 
   // 2) FIND THE BUG: ==> CONSOLE.LOG() TO FIND THE BUG IN YOUR CODE
@@ -102,3 +103,27 @@ console.log(measureKelvin());
 // go into your dev tools and open the "sources" tab then click on the script where the bug is. (scrpt.js for this example)
 // now when we our in our code in the dev tools we can set "break points." To toggle the break point simply click on the empty space to the left of the code line.
 // Break points cause the code execution to stop at that particular point. 
+
+// ======================================================
+// USING A DEBUGGER:
+const calcTempAmplitudeBug = function (t1, t2) {
+    const temps = t1.concat(t2); // concat is taking array 1 [t1] and array two [t2] and merging them together to create a whole new array [temps]
+    console.log(temps);
+  
+    let max = 0;
+    let min = 0;
+  
+    for (let i = 0; i < temps.length; i++) {
+      const curTemp = temps[i];
+  
+      if (typeof curTemp !== 'number') continue;
+  
+      if (curTemp > max) max = curTemp;
+      if (curTemp < min) min = curTemp;
+    }
+    console.log('max:', max);
+    console.log('min:', min);
+    return max - min;
+  };
+  const amplitudeBug = calcTempAmplitudeBug([3, 5, 7], [9, 4, 5]);
+  console.log(amplitudeBug);
