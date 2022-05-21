@@ -6,18 +6,33 @@
     <meta charset="UTF-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+    <link href="style.css" rel="stylesheet" />
+
     <title>Learning HTML & CSS</title>
   </head>
   <body>
     <h1>JavaScript is fun, but so is HTML & CSS!</h1>
-    <p>
+    <p class="first">
       You can learn JavaScript without HTML & CSS, but for DOM manipulation it's
-      useful to have some basic ideas of HTML & CSS.
-
-      <a href="https://github.com/rjcrespo1">Ryan on GitHub</a>
+      useful to have some basic ideas of HTML & CSS. You can see more of my work
+      on <a href="https://github.com/rjcrespo1">GitHub</a>.
     </p>
 
     <h2>Another Heading</h2>
-    <p>Just another paragraph.</p>
+    <p class="second">Just another paragraph.</p>
+
+    <img
+      id="course-image"
+      src="https://miro.medium.com/max/792/1*lJ32Bl-lHWmNMUSiSq17gQ.png"
+    />
+
+    <form id="your-name">
+      <h2>Your name here:</h2>
+      <p class="first">Please fill in this form :)</p>
+
+      <input type="text" placeholder="Your name" />
+      <button>OK!</button>
+    </form>
   </body>
 </html>
