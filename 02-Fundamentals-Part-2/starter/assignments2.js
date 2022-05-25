@@ -185,10 +185,11 @@ const populations = [300, 46, 1400, 59];
 const percentages3 = [];
 
 let i = 0;
-while (i < populations.length) { // while the index is less than the populations array ==> 4 (i < populations.length)
-  const perc = percentageOfWorld1(populations[i]) // this just gets us the index of each element in populations array and inputs it into the function percentagesOfWorld1 and runs the equation in there
+while (i < populations.length) {
+  // while the index is less than the populations array ==> 4 (i < populations.length)
+  const perc = percentageOfWorld1(populations[i]); // this just gets us the index of each element in populations array and inputs it into the function percentagesOfWorld1 and runs the equation in there
   // console.log(perc)
-  percentages3.push(perc) // we are pushing the result of perc (percentagesOfWorld1(populations[i])) into the empty array of percentages3
-  i++
+  percentages3.push(perc); // we are pushing the result of perc (percentagesOfWorld1(populations[i])) into the empty array of percentages3
+  i++;
 }
-console.log(percentages3)
+console.log(percentages3);

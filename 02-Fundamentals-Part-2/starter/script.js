@@ -11,7 +11,6 @@
 // const interface = 'Audio';
 // const private = 633;
 
-
 // Functions
 // ===============================================================
 // function logger() {
@@ -37,7 +36,6 @@
 // const num = Number('23');
 // console.log(num);
 
-
 // Function Declarations vs. Expressions
 // ===============================================================
 
@@ -57,7 +55,6 @@
 
 // const age2 = calcAge2(1991);
 // console.log(age2);
-
 
 // Arrow Functions
 // ===============================================================
@@ -91,7 +88,6 @@
 
 // console.log(foodProcessor(2, 3)); // the 2 will replace the apples parameters in the foodProcessor function and same thing with the 3 and orange parameters
 
-
 // Reviewing Functions
 // ===============================================================
 // const calcAge = function (birthYeah) {
@@ -113,7 +109,6 @@
 
 // console.log(yearsUntilRetirement(1991, "Jonas"));
 // console.log(yearsUntilRetirement(1950, "Mike"));
-
 
 ////////////////////////////////////////////
 // Coding Challenge #1
@@ -169,7 +164,6 @@ GOOD LUCK 😀
 // END CHALLENGE
 ////////////////////////////////////////////////
 
-
 // Intro to Arrays
 // ===============================================================
 
@@ -224,7 +218,6 @@ GOOD LUCK 😀
 // const ages2 = [age1, age2, age3]; // this array is doing the same thing that the above array [ages] is doing. This just cleans the code and is much easier to write
 // console.log(ages2);
 
-
 // Basic Array Operations (Methods)
 // ===============================================================
 // const friends = ["Mike", "Steve", "Pete"];
@@ -251,7 +244,6 @@ GOOD LUCK 😀
 // if (friends.includes("Pete")) {
 //   console.log("Pete is a good friend!");
 // }
-
 
 ///////////////////////////////////////
 // Coding Challenge #2
@@ -285,7 +277,6 @@ GOOD LUCK 😀
 // END CHALLENGE
 /////////////////////////////////////////////
 
-
 // Intro to Objects
 // ===============================================================
 // const ryan = {
@@ -295,7 +286,6 @@ GOOD LUCK 😀
 //   occupation: "Software Engineer",
 //   friends: ["Josh", "Daniel", "Charles"],
 // }; // objects contain properties which are listed as {key: value}. every object must have this. every property is seperated by a comma and must all be wrapped in curly braces
-
 
 // Dot vs. Bracket Notation
 // ===============================================================
@@ -332,7 +322,6 @@ GOOD LUCK 😀
 // console.log(
 //   `${ryan.firstName} has ${ryan.friends.length} friends, and his best friend is ${ryan.friends[0]}`
 // );
-
 
 // Object Methods
 // ===============================================================
@@ -374,7 +363,6 @@ GOOD LUCK 😀
 // // Challenge: log this line below to the console by creating a new function property: getSummary...
 // // "Ryan is a 33-year old Software Engineer, and he has a driver's license."
 // console.log(ryan.getSummary());
-
 
 /////////////////////////////////////////////
 // Coding Challenge #3
@@ -427,7 +415,6 @@ GOOD LUCK 😀
 // END CODING CHALLENGE
 ///////////////////////////////////////////////
 
-
 // Iteration: The For Loop
 // ================================================================
 // console.log("Lifting weights repetition 1 🏋️‍♀️");
@@ -450,7 +437,6 @@ GOOD LUCK 😀
 //   console.log(`Lifting weights repetition ${rep} 🏋️‍♀️`); // this prints all those console logs that we hard coded above, to the console.
 // } // we set rep at 1 and set the condition to stop once it got to 10 (rep <= 10) and we increased each increment of the loop by 1 (rep++).
 
-
 // Looping Arrays, Breaking and Continuing
 // ==================================================================
 // const ryan = [
@@ -470,13 +456,13 @@ GOOD LUCK 😀
 // ryan[5] does not exist. We want to loop through this array until we hit the final item in it, which is [4]
 
 // for (let i = 0; i < ryan.length; i++) {
-  // Reading from the "ryan" array
-  // console.log(ryan[i], typeof ryan[i]); // this loop will display everything in the array on seperate lines and the type of element to go along with it
+// Reading from the "ryan" array
+// console.log(ryan[i], typeof ryan[i]); // this loop will display everything in the array on seperate lines and the type of element to go along with it
 
-  // Filling the empty "types" array
-  // types[i] = typeof ryan[i]; // ==> this is types[0] = typeof ryan[0]...and then 1 and 2 and 3...so on and so forth
-  // types.push(typeof ryan[i]) // this is just a different way of filling the empty "types" array. Also be sure to use push and not unshift
-  // types.unshift(typeof ryan[i]) // this would give us the same elements as before but we would get them in reverse
+// Filling the empty "types" array
+// types[i] = typeof ryan[i]; // ==> this is types[0] = typeof ryan[0]...and then 1 and 2 and 3...so on and so forth
+// types.push(typeof ryan[i]) // this is just a different way of filling the empty "types" array. Also be sure to use push and not unshift
+// types.unshift(typeof ryan[i]) // this would give us the same elements as before but we would get them in reverse
 // }
 
 // console.log(types);
@@ -493,7 +479,7 @@ GOOD LUCK 😀
 // console.log("--- ONLY STRINGS ---");
 // for (let i = 0; i < ryan.length; i++) {
 //   if (typeof ryan[i] !== "string") continue; // if the type of the current element (ryan[i]) is not a string (!== 'string') then continue ==> the current iteration of the loop is exited, then the next one starts immediately
-  
+
 //   console.log(ryan[i], typeof ryan[i]);
 // }
 
@@ -504,7 +490,6 @@ GOOD LUCK 😀
 
 //   console.log(ryan[i], typeof ryan[i]);
 // }
-
 
 // Looping Backwards and Loops inside Loops
 // ===================================================================
@@ -531,7 +516,6 @@ GOOD LUCK 😀
 //   }
 // }
 
-
 // The While Loop
 // ========================================================================
 // for (let rep = 1; rep <= 10; rep++) {
@@ -542,7 +526,7 @@ GOOD LUCK 😀
 // while (rep <= 10) {
 //   // console.log(`WHILE: Lifting weights repetition ${rep} 🏋️‍♀️`);
 //   rep++;
-// } // in a while loop we can only specify a condition. We don't use let i = 0; or i++. The loop only runs WHILE the condition that is stated is true 
+// } // in a while loop we can only specify a condition. We don't use let i = 0; or i++. The loop only runs WHILE the condition that is stated is true
 
 // let dice = Math.trunc(Math.random() * 6) + 1; // this will generate a random number between 1 - 6. Like a dice
 // // console.log(dice);
@@ -552,7 +536,6 @@ GOOD LUCK 😀
 //   dice = Math.trunc(Math.random() * 6) + 1;
 //   if (dice === 6) console.log(`You rolled a ${dice}...loop is now ending`)
 // } // all this loop is doing is testing for whenever the dice is rolled, if it isn't a 6 it will keep going until it hits a 6 then it breaks
-
 
 ////////////////////////////////////////////////
 // Coding Challenge #4
@@ -577,28 +560,28 @@ GOOD LUCK 😀
 */
 const calcTip = function (bill) {
   return bill >= 50 && bill <= 300 ? bill * 0.15 : bill * 0.2;
-}
+};
 
 const bills = [22, 295, 176, 440, 37, 105, 10, 1100, 86, 52];
 const tips = [];
 const totals = [];
 
 for (let i = 0; i < bills.length; i++) {
-  const tip = calcTip(bills[i])
-  tips.push(tip)
-  totals.push(tip + bills[i])
+  const tip = calcTip(bills[i]);
+  tips.push(tip);
+  totals.push(tip + bills[i]);
 }
-console.log(bills, tips, totals)
- // BONUS:
+console.log(bills, tips, totals);
+// BONUS:
 const calcAverage = function (arr) {
   let sum = 0;
   for (let i = 0; i < arr.length; i++) {
     // sum = sum + arr[i];
-    sum += arr[i]; // this does exactly what the line above is doing 
+    sum += arr[i]; // this does exactly what the line above is doing
   }
   // console.log(sum)
-  return sum / arr.length
-}
+  return sum / arr.length;
+};
 // console.log(calcAverage([5, 5, 5]))
-console.log(calcAverage(totals))
-console.log(calcAverage(tips))
+console.log(calcAverage(totals));
+console.log(calcAverage(tips));
