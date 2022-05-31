@@ -13,6 +13,12 @@ document.querySelector('.guess').value = 23;
 console.log(document.querySelector('.guess').value);
 */
 
-document.querySelector('.check').addEventListener('click', function() { // we select the button which has the class name 'check' then added an event listener
-    console.log(document.querySelector('.guess').value); // to the event listener we add an event handler which is the function inside the event listener. and all I did was log to the console to see if we get a number when we put it in the box and click the 'check' button
-})
+document.querySelector('.check').addEventListener('click', function () {
+  // we select the button which has the class name 'check' then added an event listener
+  const guess = Number(document.querySelector('.guess').value); // to the event listener we add an event handler which is the function inside the event listener. and all I did was log to the console to see if we get a number when we put it in the box and click the 'check' button
+  console.log(guess, typeof guess);
+
+    if(!guess) {
+        document.querySelector('.message').textContent = '⛔ No Number!';
+    }
+});
