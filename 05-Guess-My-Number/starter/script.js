@@ -26,27 +26,36 @@ document.querySelector('.check').addEventListener('click', function () {
   const guess = Number(document.querySelector('.guess').value); // to the event listener we add an event handler which is the function inside the event listener. and all I did was log to the console to see if we get a number when we put it in the box and click the 'check' button
   console.log(guess, typeof guess);
 
+  // When there is no number guessed
   if (!guess) {
     document.querySelector('.message').textContent = '⛔ No Number!';
+
+    // When player wins
   } else if (guess === secretNum) {
     document.querySelector('.message').textContent = '🎉 Correct Number!';
+    document.querySelector('body').style.backgroundColor = '#60b347'; // change the background color to green when the correct number is guessed
+    document.querySelector('.number').style.width = '30rem'; // widen the white background of the winning number when guessed correctly
+
+    // when the guess is too high
   } else if (guess > secretNum) {
-      if (score > 1) {
-    document.querySelector('.message').textContent = '📈 Too High!';
-    score--;
-    document.querySelector('.score').textContent = score;
-      } else {
-        document.querySelector('.message').textContent = '❌ You Lost!!';
-        document.querySelector('.score').textContent = 0;
-      }
+    if (score > 1) {
+      document.querySelector('.message').textContent = '📈 Too High!';
+      score--;
+      document.querySelector('.score').textContent = score;
+    } else {
+      document.querySelector('.message').textContent = '❌ You Lost!!';
+      document.querySelector('.score').textContent = 0;
+    }
+
+    // when the guess is too low
   } else if (guess < secretNum) {
     if (score > 1) {
-        document.querySelector('.message').textContent = '📉 Too Low!';
-        score--;
-        document.querySelector('.score').textContent = score;
-          } else {
-            document.querySelector('.message').textContent = '❌ You Lost!!';
-            document.querySelector('.score').textContent = 0;
-          }
+      document.querySelector('.message').textContent = '📉 Too Low!';
+      score--;
+      document.querySelector('.score').textContent = score;
+    } else {
+      document.querySelector('.message').textContent = '❌ You Lost!!';
+      document.querySelector('.score').textContent = 0;
+    }
   }
 });
