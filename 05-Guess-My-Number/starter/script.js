@@ -13,13 +13,11 @@ document.querySelector('.guess').value = 23;
 console.log(document.querySelector('.guess').value);
 */
 
-const secretNum = Math.trunc(Math.random() * 20) + 1; // Math.random() gives us random numbers between 0 and 1 every time we refresh the page. Math.random()*20 gives us a random number between 0 and 20.
+let secretNum = Math.trunc(Math.random() * 20) + 1; // Math.random() gives us random numbers between 0 and 1 every time we refresh the page. Math.random()*20 gives us a random number between 0 and 20.
 // Math.trunc() deletes the decimal and any number that comes after it. It doesn't round at all. So now it will give a random number between 0 and 19...which isn't exactly what we want
 // since we are using Math.trunc() we will never get to 20 since we aren't rounding the number. (19.999999 = 19) So we can add +1 to the function and it now gives us a random number between 1 and 20.
 let score = 20;
-
-document.querySelector('.number').textContent = secretNum;
-console.log(secretNum);
+let highScore = 0;
 
 document.querySelector('.check').addEventListener('click', function () {
   // we select the button which has the class name 'check' then added an event listener
@@ -30,13 +28,19 @@ document.querySelector('.check').addEventListener('click', function () {
   if (!guess) {
     document.querySelector('.message').textContent = '⛔ No Number!';
 
-    // When player wins
+    // When the player wins
   } else if (guess === secretNum) {
     document.querySelector('.message').textContent = '🎉 Correct Number!';
+    document.querySelector('.number').textContent = secretNum;
     document.querySelector('body').style.backgroundColor = '#60b347'; // change the background color to green when the correct number is guessed
     document.querySelector('.number').style.width = '30rem'; // widen the white background of the winning number when guessed correctly
 
-    // when the guess is too high
+    if (score > highScore) {
+        highScore = score;
+        document.querySelector('.highscore').textContent = highScore;
+    };
+
+    // When the guess is too high
   } else if (guess > secretNum) {
     if (score > 1) {
       document.querySelector('.message').textContent = '📈 Too High!';
@@ -47,7 +51,7 @@ document.querySelector('.check').addEventListener('click', function () {
       document.querySelector('.score').textContent = 0;
     }
 
-    // when the guess is too low
+    // When the guess is too low
   } else if (guess < secretNum) {
     if (score > 1) {
       document.querySelector('.message').textContent = '📉 Too Low!';
@@ -58,4 +62,31 @@ document.querySelector('.check').addEventListener('click', function () {
       document.querySelector('.score').textContent = 0;
     }
   }
+});
+
+/////////////////////////////////////////////////
+// CODING CHALLENGE:
+
+/* 
+Implement a game rest functionality, so that the player can make a new guess! Here is how:
+
+1. Select the element with the 'again' class and attach a click event handler
+2. In the handler function, restore initial values of the score and secretNumber variables
+3. Restore the initial conditions of the message, number, score and guess input field
+4. Also restore the original background color (#222) and number width (15rem)
+
+GOOD LUCK 😀
+*/
+
+document.querySelector('.again').addEventListener('click', function () {
+    score = 20;
+    secretNum = Math.trunc(Math.random() * 20) + 1;
+
+    document.querySelector('.message').textContent = 'Start guessing...';
+    document.querySelector('.number').textContent = '?';
+    document.querySelector('.score').textContent = score;
+    document.querySelector('.guess').value = '';
+
+    document.querySelector('body').style.backgroundColor = '#222';
+    document.querySelector('.number').style.width = '15rem';
 });
