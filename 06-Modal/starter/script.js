@@ -22,3 +22,20 @@ for (let i = 0; i < btnsShowModal.length; i++)
 
 btnCloseModal.addEventListener('click', closeModal);
 overlay.addEventListener('click', closeModal);
+
+// function for closing the modal with the "escape" key
+document.addEventListener('keydown', function (e) {
+  // we give the function a parameter of "e"(event) because keydown by itself doesn't specify a single key. It registers all keys being pressed. And as this event occurs, JS calls this function with the event object as an argument
+  // console.log('a key was pressed');
+  // since we have the event listener on a document, it is global. Meaning that it is listening for this event everywhere
+  // We are not calling this function, we only define it. ==> ("HEY JAVASCRIPT, CALL THIS FUNCTION WHEN A KEYDOWN EVENT HAPPENS. WHEN YOU DO SO, PASS IN THE EVENT OBJECT AS AN ARGUMENT")
+  //   console.log(e.key);
+
+  if (e.key === 'Escape' && !modal.classList.contains('hidden')) {
+    // if the pressed key is "escape" AND if the modal class DOES NOT contain the class "hidden"
+    console.log('=== esc was pressed ===');
+    // if (!modal.classList.contains('hidden')) {
+    closeModal();
+    // }
+  }
+});
