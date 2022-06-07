@@ -20,30 +20,63 @@ diceEl.classList.add('hidden');
 const scores = [0, 0];
 let currentScore = 0; // this variable has to be set outside the function below because if it was in the function, the score would be reset to 0 every time the button is clicked
 let activePlayer = 0; // variable for selecting the current player
+let playing = true;
+
+function switchPlayer() {
+  document.getElementById(`current--${activePlayer}`).textContent = 0;
+  currentScore = 0;
+  activePlayer = activePlayer === 0 ? 1 : 0; // if the active player is 0, it then turns to player 1 and vice versa
+  player0El.classList.toggle('player--active'); // "toggle" adds the class if it is not there and if it is, it removes the class
+  player1El.classList.toggle('player--active');
+}
 
 // Rolling the dice functionality
 btnRoll.addEventListener('click', function () {
-  // 1. Generate a random dice roll
-  const dice = Math.trunc(Math.random() * 6) + 1; // gives us a random number between 1 and 6
-  console.log(dice);
+  if (playing) {
+    // 1. Generate a random dice roll
+    const dice = Math.trunc(Math.random() * 6) + 1; // gives us a random number between 1 and 6
+    // console.log(dice);
 
-  // 2. Display the dice
-  diceEl.classList.remove('hidden');
-  diceEl.src = `dice-${dice}.png`; // We take the variable 'dice' that gives us a random number between 1 and 6 and use that to manipulate the src from the dice images to give us a random dice image == 1-6
+    // 2. Display the dice
+    diceEl.classList.remove('hidden');
+    diceEl.src = `dice-${dice}.png`; // We take the variable 'dice' that gives us a random number between 1 and 6 and use that to manipulate the src from the dice images to give us a random dice image == 1-6
 
-  // 3. Check for a rolled 1...
-  if (dice !== 1) {
-    // Add the dice to the current score
-    // *** currentScore = currentScore + dice;
-    currentScore += dice; // this is a cleaner way of writing the code above
-    document.getElementById(`current--${activePlayer}`).textContent =
-      currentScore; // Here we are updating the current score to the current player{activePlayer}
-  } else {
-    // Switch to next player
-    document.getElementById(`current--${activePlayer}`).textContent = 0;
-    currentScore = 0;
-    activePlayer = activePlayer === 0 ? 1 : 0; // if the active player is 0, it then turns to player 1 and vice versa
-    player0El.classList.toggle('player--active'); // "toggle" adds the class if it is not there and if it is, it removes the class
-    player1El.classList.toggle('player--active');
+    // 3. Check for a rolled 1...
+    if (dice !== 1) {
+      // Add the dice to the current score
+      // *** currentScore = currentScore + dice;
+      currentScore += dice; // this is a cleaner way of writing the code above
+      document.getElementById(`current--${activePlayer}`).textContent =
+        currentScore; // Here we are updating the current score to the current player{activePlayer}
+    } else {
+      // Switch to next player
+      switchPlayer();
+    }
+  }
+});
+
+btnHold.addEventListener('click', function () {
+  if (playing) {
+    // 1. Add current score to active player's score
+    // scores[1] = scores[1] + currentScore
+    scores[activePlayer] += currentScore;
+    document.getElementById(`score--${activePlayer}`).textContent =
+      scores[activePlayer];
+
+    // 2. Check if player's score is >= 100
+    if (scores[activePlayer] >= 20) {
+      // 2a. Finish game
+      playing = false;
+      diceEl.classList.add('hidden')
+      document
+        .querySelector(`.player--${activePlayer}`)
+        .classList.add('player--winner');
+      document
+        .querySelector(`.player--${activePlayer}`)
+        .classList.remove('player--active');
+    } else {
+      // 2b. Switch to the next player
+      switchPlayer();
+    }
   }
 });
