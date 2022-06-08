@@ -12,15 +12,27 @@ const btnNew = document.querySelector('.btn--new');
 const btnRoll = document.querySelector('.btn--roll');
 const btnHold = document.querySelector('.btn--hold');
 
-// Starting conditions
-score0El.textContent = 0; // We're just changing the displayed numbers on the page to show "0"
-score1El.textContent = 0;
-diceEl.classList.add('hidden');
+let scores, currentScore, activePlayer, playing;
 
-const scores = [0, 0];
-let currentScore = 0; // this variable has to be set outside the function below because if it was in the function, the score would be reset to 0 every time the button is clicked
-let activePlayer = 0; // variable for selecting the current player
-let playing = true;
+// Starting conditions
+function init() {
+  scores = [0, 0];
+  currentScore = 0; // this variable has to be set outside the function below because if it was in the function, the score would be reset to 0 every time the button is clicked
+  activePlayer = 0; // variable for selecting the current player
+  playing = true;
+
+  score0El.textContent = 0; // We're just changing the displayed numbers on the page to show "0"
+  score1El.textContent = 0;
+  current0El.textContent = 0;
+  current1El.textContent = 0;
+
+  diceEl.classList.add('hidden');
+  player0El.classList.remove('player--winner');
+  player1El.classList.remove('player--winner');
+  player0El.classList.add('player--active');
+  player1El.classList.remove('player--active');
+}
+init();
 
 function switchPlayer() {
   document.getElementById(`current--${activePlayer}`).textContent = 0;
@@ -55,6 +67,7 @@ btnRoll.addEventListener('click', function () {
   }
 });
 
+// Functionality for holding the current score and adding to the total score
 btnHold.addEventListener('click', function () {
   if (playing) {
     // 1. Add current score to active player's score
@@ -64,10 +77,10 @@ btnHold.addEventListener('click', function () {
       scores[activePlayer];
 
     // 2. Check if player's score is >= 100
-    if (scores[activePlayer] >= 20) {
+    if (scores[activePlayer] >= 100) {
       // 2a. Finish game
       playing = false;
-      diceEl.classList.add('hidden')
+      diceEl.classList.add('hidden');
       document
         .querySelector(`.player--${activePlayer}`)
         .classList.add('player--winner');
@@ -80,3 +93,7 @@ btnHold.addEventListener('click', function () {
     }
   }
 });
+
+// Functionality for the new game(reset) button
+btnNew.addEventListener('click', init);
+// created a seperate function with the starter code and added that to the event listener
