@@ -19,4 +19,9 @@ This works by first splitting up each line of code into pieces that are meaningf
 The resulting tree will later be used to generate the machine code.
 
 
++++ EXECUTION CONTEXTS AND THE CALL STACK
+-In the beginning, only codes outside of functions will be executed. (Functions need to be called to be executed)
+-Javascript code always runs inside an execution context.
+-Execution context is the enviroment in which a piece of JavaScript is executed. Stores all the necessary information for some code to be executed.
+
 */
