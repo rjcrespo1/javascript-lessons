@@ -1,6 +1,6 @@
 'use strict';
 
-const { threadId } = require('worker_threads');
+// const { threadId } = require('worker_threads');
 
 // *NOTES*
 
@@ -46,23 +46,23 @@ The resulting tree will later be used to generate the machine code.
 */
 // Example of Execution Context:
 
-const name = 'Ryan'; // GLOBAL => name = "Ryan"; first = <function>; second = <function>; x = <unknown>
+// const name = 'Ryan'; // GLOBAL => name = "Ryan"; first = <function>; second = <function>; x = <unknown>
 
-const first = () => {
-  // FIRST() => a = 1; b = <unknown>
-  let a = 1;
-  const b = second(7, 9);
-  a = a + b;
-  return a;
-};
+// const first = () => {
+//   // FIRST() => a = 1; b = <unknown>
+//   let a = 1;
+//   const b = second(7, 9);
+//   a = a + b;
+//   return a;
+// };
 
-function second(x, y) {
-  // SECOND() => c = 2; arguments = [7, 9]
-  var c = 2;
-  return c;
-}
+// function second(x, y) {
+//   // SECOND() => c = 2; arguments = [7, 9]
+//   var c = 2;
+//   return c;
+// }
 
-const x = first();
+// const x = first();
 
 /*
 
@@ -203,3 +203,14 @@ Global Scope always is first!!
 -The scope chain has nothing to do with the order in which functions are called. It does not affect the scope chain at all!
 
 */
+
+// +++ SCOPING IN PRACTICE
+
+function calcAge(birthYear) {
+  const age = 2037 - birthYear;
+  console.log(firstName);
+  return age;
+}
+
+const firstName = 'Ryan';
+calcAge(1989);
