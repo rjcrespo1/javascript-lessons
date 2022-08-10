@@ -1,4 +1,4 @@
-'use strict';
+// 'use strict';
 
 // const { threadId } = require('worker_threads');
 
@@ -212,6 +212,19 @@ function calcAge(birthYear) {
   function printAge() {
     const output = `${firstName}, you are ${age}, born in ${birthYear}`;
     console.log(output);
+
+    if (birthYear >= 1981 && birthYear <= 1996) {
+      var millenial = true;
+      const str = `Oh, and you are a millenial, ${firstName}!`;
+      console.log(str);
+
+      function add(a, b) {
+        return a + b;
+      }
+    }
+    console.log(millenial); // this can be outside of the block because of the variable "var". Const and let cannot be recognized in the scope outside of block scopes.
+    console.log(add(2, 3));
+    
   }
   printAge();
 
