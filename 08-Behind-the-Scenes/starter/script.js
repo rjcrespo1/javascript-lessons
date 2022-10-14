@@ -211,21 +211,29 @@ function calcAge(birthYear) {
   console.log(firstName);
 
   function printAge() {
-    const output = `${firstName}, you are ${age}, born in ${birthYear}`;
+    let output = `${firstName}, you are ${age}, born in ${birthYear}`;
     console.log(output);
 
     if (birthYear >= 1981 && birthYear <= 1996) {
       var millenial = true;
+      
+      // Creating NEW variable with same name as outer scope's variable
+      const firstName = 'Steven'; // JS will always look for the variable name in the current scope FIRST. And since it is in the current scope, it will show as "Steven" for this particular ${firstName}
+
+      // Reassigning outer scope's variable
+      const output = 'NEW OUTPUT!'; // added const in front output to make it a brand new variable. Wihtout const, we're just redefining the old output variable and it will return as "NEW OUTPUT"
+      
       const str = `Oh, and you are a millenial, ${firstName}!`;
       console.log(str);
-
+      
       function add(a, b) {
         return a + b;
       }
+      
     }
     console.log(millenial); // this can be outside of the block because of the variable "var". Const and let cannot be recognized in the scope outside of block scopes.
     console.log(add(2, 3));
-    
+    console.log(output);
   }
   printAge();
 
