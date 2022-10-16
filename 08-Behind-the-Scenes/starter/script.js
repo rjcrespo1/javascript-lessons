@@ -206,6 +206,7 @@ Global Scope always is first!!
 
 // +++ SCOPING IN PRACTICE
 
+/*
 function calcAge(birthYear) {
   const age = 2022 - birthYear;
   console.log(firstName);
@@ -216,7 +217,7 @@ function calcAge(birthYear) {
 
     if (birthYear >= 1981 && birthYear <= 1996) {
       var millenial = true;
-      
+
       // Creating NEW variable with same name as outer scope's variable
       const firstName = 'Steven'; // JS will always look for the variable name in the current scope FIRST. And since it is in the current scope, it will show as "Steven" for this particular ${firstName}
 
@@ -242,3 +243,28 @@ function calcAge(birthYear) {
 
 const firstName = 'Ryan';
 calcAge(1989);
+*/
+
+// +++ VARIABLE ENVIROMENT: HOISTING AND THE TDZ
+
+// - Hoisting: Makes some types of variables accessible/usable in the code before they are actually declared. "Variables lifted to thw top of their scope."
+
+// ~~ Behind the scenes ~~
+
+// - Before execution, code is scanned for variable declarations, and for each variable, a new property is created in the variable enviroment object.
+// - Function declararions are hoisted. The initial value in the variable enviroment is set to the actual function. (We can use function declarations before they are actually declared in the code)
+// - Variables declared by "var" are also hoisted, but in a different way. Unlike functions, when we try to access a var variable before its declared in the code, we don't get the declared value. We get undefined.
+// - Variables declared by let and const are not hoisted. (They technically are, but their value is basically set to uninitialized. So there is no value to work with at all. And in practice it's as if hoisting was not happening at all). So we say that these variables are placed in a Temporal Dead Zone(TDZ) which makes it so that we can't access the variables between the beginning of the scope and the place where the variables are declared.
+// - contd... If we attempt to use a let or const variable before it's declared, we get an error. Let and const are both block scoped! Meaning they only exist in the block in which they were created.
+// - For funtion expressions and arrows it all depends on if they were created using var or let/const. These types of functions are simply variables. So they behave the exact same way as variables in regards to hoisting.
+
+// ~~ Temporal Dead Zone ~~
+const myName = 'Ryan';
+
+if (myName === 'Ryan') {
+  console.log(`Ryan is a ${job}`);
+  const age = 2022 - 1989;
+  console.log(age);
+  const job = 'developer'; // the TDZ is the for the job variable is the three above lines...265, 266, 267.
+  console.log(x);
+}
