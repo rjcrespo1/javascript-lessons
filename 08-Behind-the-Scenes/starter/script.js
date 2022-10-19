@@ -1,4 +1,4 @@
-// 'use strict';
+'use strict';
 
 // const { threadId } = require('worker_threads');
 
@@ -345,3 +345,38 @@ ryan.calcAge();
 // 4. Event listener -> this = <DOM element that the handler function is attached to>
 
 // THIS will never point to the function in which we are using. It will also never point to the variable enviroment of the function.
+
+// +++ THE "THIS" KEYWORD IN PRACTICE
+
+// console.log(this);
+
+const calcAges = function (birthYears) {
+  console.log(2022 - birthYears);
+  // console.log(this);
+};
+calcAges(1989);
+
+const calcAgesArrow = birthYears => {
+  console.log(2022 - birthYears);
+  // console.log(this);
+};
+calcAgesArrow(1980);
+
+const ryanC = {
+  year: 1989,
+  calcAge: function () {
+    console.log(this);
+    console.log(2022 - this.year);
+  },
+};
+ryanC.calcAge();
+
+const matilda = {
+  year: 2017,
+};
+
+matilda.calcAge = ryanC.calcAge; // this is called method borrowing
+matilda.calcAge();
+
+const f = ryanC.calcAge;
+f(); // <- undefined
