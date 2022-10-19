@@ -273,51 +273,75 @@ calcAge(1989);
 
 // -Hoisting with variables
 
-console.log(me);
+// console.log(me);
 // console.log(job);
 // console.log(yearBorn);
 
-var me = 'Ryan'; // --> var variables are hoisted but they are hoisted to the value of undefined
-let job = 'developer';
-const yearBorn = 1989;
+// var me = 'Ryan'; // --> var variables are hoisted but they are hoisted to the value of undefined
+// let job = 'developer';
+// const yearBorn = 1989;
 
 // -Hoisting with functions
 
-console.log(addDecl(2, 3));
+// console.log(addDecl(2, 3));
 // console.log(addExpr(2, 3));
 // console.log(addArrow(2, 3));
 
-function addDecl(a, b) {
-  // --> this type of function can be hoisted. will work as a normal function
-  return a + b;
-}
+// function addDecl(a, b) {
+//   // --> this type of function can be hoisted. will work as a normal function
+//   return a + b;
+// }
 
-const addExpr = function (a, b) {
-  // --> this type of function cannot be hoisted because of the const variable. this type of function acts as a variable
-  return a + b;
-};
+// const addExpr = function (a, b) {
+//   // --> this type of function cannot be hoisted because of the const variable. this type of function acts as a variable
+//   return a + b;
+// };
 
-var addArrow = (a, b) => a + b; // --> this function with the var variable will act just like a normal expression with the var variable. except the console will show a different kind of error. but it is essentially the same thing(an undefined function)
+// var addArrow = (a, b) => a + b; // --> this function with the var variable will act just like a normal expression with the var variable. except the console will show a different kind of error. but it is essentially the same thing(an undefined function)
 
-// Example:
+// // Example:
 
-console.log(numProducts);
-if (!numProducts) deleteShoppingCart(); // --> (numProducts) is undefined
+// console.log(numProducts);
+// if (!numProducts) deleteShoppingCart(); // --> (numProducts) is undefined
 
-var numProducts = 10;
+// var numProducts = 10;
 
-function deleteShoppingCart() {
-  console.log('All products deleted!');
-}
+// function deleteShoppingCart() {
+//   console.log('All products deleted!');
+// }
 
-var x = 1;
-let y = 2;
-const z = 3;
+// var x = 1;
+// let y = 2;
+// const z = 3;
 
-console.log(x === window.x); // true
-console.log(y === window.y); // false
-console.log(z === window.z); // false
+// console.log(x === window.x); // true
+// console.log(y === window.y); // false
+// console.log(z === window.z); // false
 
 // !!!! DON'T USE VAR TO DECLARE VARIABLES !!!!
 // !!!! DECLARE VARIABLES AT THE TOP OF EACH SCOPE FOR CLEANER CODE !!!!
 // !!!! ALWAYS DECLARE ALL FUNCTIONS FIRST AND USE THEM ONLY AFTER THE DECLARATION !!!!
+
+// +++ THE "THIS" KEYWORD
+
+// --> "this" keyword/variable: Special variable that is created for every execution context (every function). Takes the value of (points to) the "owner" of the function which is the THIS keyword is used.
+// --> the value of "this" is not static (not always the same). It depends on how the function is actually called, and its value is only assigned when the function is actually called.
+
+// -Different ways functions can be called-
+// 1. Method -> this = <Object that is calling the method>
+const ryan = {
+  name: 'Ryan',
+  year: 1989,
+  calcAge: function () {
+    return 2022 - this.year;
+  },
+};
+ryan.calcAge();
+
+// 2. Simple function call -> this = undefined (this is only true in strict mode. if not in strict mode, "this" will point to the global object)
+
+// 3. Arrow functions -> this = <this of surrounding function(lexical this)> (arrow functions do not get their own "this" keyword)
+
+// 4. Event listener -> this = <DOM element that the handler function is attached to>
+
+// THIS will never point to the function in which we are using. It will also never point to the variable enviroment of the function.
