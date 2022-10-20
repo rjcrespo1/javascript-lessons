@@ -350,33 +350,47 @@ ryan.calcAge();
 
 // console.log(this);
 
-const calcAges = function (birthYears) {
-  console.log(2022 - birthYears);
-  // console.log(this);
-};
-calcAges(1989);
+// const calcAges = function (birthYears) {
+//   console.log(2022 - birthYears);
+// console.log(this);
+// };
+// calcAges(1989);
 
-const calcAgesArrow = birthYears => {
-  console.log(2022 - birthYears);
-  // console.log(this);
-};
-calcAgesArrow(1980);
+// const calcAgesArrow = birthYears => {
+//   console.log(2022 - birthYears);
+// console.log(this);
+// };
+// calcAgesArrow(1980);
+
+// const ryanC = {
+//   year: 1989,
+//   calcAge: function () {
+//     console.log(this);
+//     console.log(2022 - this.year);
+//   },
+// };
+// ryanC.calcAge();
+
+// const matilda = {
+//   year: 2017,
+// };
+
+// matilda.calcAge = ryanC.calcAge; // this is called method borrowing
+// matilda.calcAge();
+
+// const f = ryanC.calcAge;
+// f(); // <- undefined
+
+// +++ REGULAR FUNCTIONS VS. ARROW FUNCTIONS
 
 const ryanC = {
+  firstName: 'Ryan',
   year: 1989,
   calcAge: function () {
     console.log(this);
     console.log(2022 - this.year);
   },
+
+  greet: () => console.log(`Hey ${this.firstName}`),
 };
-ryanC.calcAge();
-
-const matilda = {
-  year: 2017,
-};
-
-matilda.calcAge = ryanC.calcAge; // this is called method borrowing
-matilda.calcAge();
-
-const f = ryanC.calcAge;
-f(); // <- undefined
+ryanC.greet(); // -> "Hey undefined"
