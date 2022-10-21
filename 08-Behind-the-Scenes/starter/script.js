@@ -383,6 +383,8 @@ ryan.calcAge();
 
 // +++ REGULAR FUNCTIONS VS. ARROW FUNCTIONS
 
+// var firstName = 'Matilda';
+
 const ryanC = {
   firstName: 'Ryan',
   year: 1989,
@@ -391,6 +393,11 @@ const ryanC = {
     console.log(2022 - this.year);
   },
 
-  greet: () => console.log(`Hey ${this.firstName}`),
+  greet: () => {
+    console.log(this);
+    console.log(`Hey ${this.firstName}`)
+  },
 };
 ryanC.greet(); // -> "Hey undefined"
+// If I add (var firstName = 'RandomName') the call using ryanC.greet(); will now show "Hey RandomName" because of the variable of var. [line 386]
+// an arrow function will return the greeting undefined. a regular function will return the greeting as completed
