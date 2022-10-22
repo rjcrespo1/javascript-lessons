@@ -389,15 +389,42 @@ const ryanC = {
   firstName: 'Ryan',
   year: 1989,
   calcAge: function () {
-    console.log(this);
+    // console.log(this);
     console.log(2022 - this.year);
+
+    // const isMillenial = function () {
+    //   console.log(this);
+    //   console.log(this.year >= 1981 && this.year <= 1996);
+    // };
+
+    const isMillenial = () => {
+      console.log(this);
+      console.log(this.year >= 1981 && this.year <= 1996);
+    };
+    isMillenial();
   },
 
   greet: () => {
     console.log(this);
-    console.log(`Hey ${this.firstName}`)
+    console.log(`Hey ${this.firstName}`);
   },
 };
 ryanC.greet(); // -> "Hey undefined"
 // If I add (var firstName = 'RandomName') the call using ryanC.greet(); will now show "Hey RandomName" because of the variable of var. [line 386]
 // an arrow function will return the greeting undefined. a regular function will return the greeting as completed
+// an arrow function inherits the THIS keyword from the parent scope
+ryanC.calcAge();
+
+// Arguments keyword
+const addExpr = function (a, b) {
+  console.log(arguments);
+  return a + b;
+};
+addExpr(2, 5);
+addExpr(2, 5, 8, 12);
+
+var addArrow = (a, b) => {
+  console.log(arguments);
+  return a + b;
+};
+addArrow(2, 5, 8);
