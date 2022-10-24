@@ -251,12 +251,14 @@ calcAge(1989);
 
 // ~~ Behind the scenes ~~
 
-// - Before execution, code is scanned for variable declarations, and for each variable, a new property is created in the variable enviroment object.
-// - Function declararions are hoisted. The initial value in the variable enviroment is set to the actual function. (We can use function declarations before they are actually declared in the code)
-// - Variables declared by "var" are also hoisted, but in a different way. Unlike functions, when we try to access a var variable before its declared in the code, we don't get the declared value. We get undefined.
-// - Variables declared by let and const are not hoisted. (They technically are, but their value is basically set to uninitialized. So there is no value to work with at all. And in practice it's as if hoisting was not happening at all). So we say that these variables are placed in a Temporal Dead Zone(TDZ) which makes it so that we can't access the variables between the beginning of the scope and the place where the variables are declared.
-// - contd... If we attempt to use a let or const variable before it's declared, we get an error. Let and const are both block scoped! Meaning they only exist in the block in which they were created.
-// - For funtion expressions and arrows it all depends on if they were created using var or let/const. These types of functions are simply variables. So they behave the exact same way as variables in regards to hoisting.
+/*
+- Before execution, code is scanned for variable declarations, and for each variable, a new property is created in the variable enviroment object.
+- Function declararions are hoisted. The initial value in the variable enviroment is set to the actual function. (We can use function declarations before they are actually declared in the code)
+- Variables declared by "var" are also hoisted, but in a different way. Unlike functions, when we try to access a var variable before its declared in the code, we don't get the declared value. We get undefined.
+- Variables declared by let and const are not hoisted. (They technically are, but their value is basically set to uninitialized. So there is no value to work with at all. And in practice it's as if hoisting was not happening at all). So we say that these variables are placed in a Temporal Dead Zone(TDZ) which makes it so that we can't access the variables between the beginning of the scope and the place where the variables are declared.
+- contd... If we attempt to use a let or const variable before it's declared, we get an error. Let and const are both block scoped! Meaning they only exist in the block in which they were created.
+- For funtion expressions and arrows it all depends on if they were created using var or let/const. These types of functions are simply variables. So they behave the exact same way as variables in regards to hoisting.
+*/
 
 // ~~ Temporal Dead Zone ~~
 // const myName = 'Ryan';
@@ -385,46 +387,91 @@ ryan.calcAge();
 
 // var firstName = 'Matilda';
 
-const ryanC = {
-  firstName: 'Ryan',
-  year: 1989,
-  calcAge: function () {
-    // console.log(this);
-    console.log(2022 - this.year);
+// const ryanC = {
+//   firstName: 'Ryan',
+//   year: 1989,
+//   calcAge: function () {
+// console.log(this);
+// console.log(2022 - this.year);
 
-    // const isMillenial = function () {
-    //   console.log(this);
-    //   console.log(this.year >= 1981 && this.year <= 1996);
-    // };
+// const isMillenial = function () {
+//   console.log(this);
+//   console.log(this.year >= 1981 && this.year <= 1996);
+// };
 
-    const isMillenial = () => {
-      console.log(this);
-      console.log(this.year >= 1981 && this.year <= 1996);
-    };
-    isMillenial();
-  },
+//     const isMillenial = () => {
+//       console.log(this);
+//       console.log(this.year >= 1981 && this.year <= 1996);
+//     };
+//     isMillenial();
+//   },
 
-  greet: () => {
-    console.log(this);
-    console.log(`Hey ${this.firstName}`);
-  },
-};
-ryanC.greet(); // -> "Hey undefined"
+//   greet: () => {
+//     console.log(this);
+//     console.log(`Hey ${this.firstName}`);
+//   },
+// };
+// ryanC.greet(); // -> "Hey undefined"
 // If I add (var firstName = 'RandomName') the call using ryanC.greet(); will now show "Hey RandomName" because of the variable of var. [line 386]
 // an arrow function will return the greeting undefined. a regular function will return the greeting as completed
 // an arrow function inherits the THIS keyword from the parent scope
-ryanC.calcAge();
+// ryanC.calcAge();
 
 // Arguments keyword
-const addExpr = function (a, b) {
-  console.log(arguments);
-  return a + b;
-};
-addExpr(2, 5);
-addExpr(2, 5, 8, 12);
+// const addExpr = function (a, b) {
+//   console.log(arguments);
+//   return a + b;
+// };
+// addExpr(2, 5);
+// addExpr(2, 5, 8, 12);
 
-var addArrow = (a, b) => {
-  console.log(arguments);
-  return a + b;
+// var addArrow = (a, b) => {
+//   console.log(arguments);
+//   return a + b;
+// };
+// addArrow(2, 5, 8);
+
+// +++ PRIMITIVES VS. OBJECTS (PRIMITIVE VS. REFERENCE TYPES)
+
+let age = 30;
+let oldAge = age;
+age = 31;
+console.log(age); // -> 31
+console.log(oldAge); // -> 30 (because I assigned oldAge to age before changing the actual age to 31, oldAge is set to the original age)
+
+const me = {
+  name: 'Ryan',
+  age: 30,
 };
-addArrow(2, 5, 8);
+const friend = me;
+friend.age = 27;
+console.log("friend:", friend);
+console.log("me:", me);
+
+/*
+-REVIEW: PRIMITIVES, OBJECTS AND THE JS ENGINE-
+PRIMITIVE: (Primitive Types)
+- Number
+- String
+- Boolean
+- Undefined
+- Null
+- Symbol
+- BigInt
+
+OBJECTS: (Reference Types)
+- Object literal
+- Arrays
+- Functions
+- And many more...
+
+JS ENGINE:
+The engine has two components. The Call Stack, where functions are executed. And the Heap, where objects are stored in memory.
+All objects, or "reference types", will get stored in the memory heap.
+
+On the other hand, primitives, or "primitive types", are stored in the call stack. (Meaning primitive types are stored in the execution contexts in which they are declared).
+
+When we declare a variable as an object an identifier is created which points to a piece of memory in the call stack which in turn points to a piece of memory in the heap.
+*/
+
+// +++ PRIMITIVES VS. OBJECTS IN PRACTICE
