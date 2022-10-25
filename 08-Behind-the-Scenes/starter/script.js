@@ -445,8 +445,8 @@ const me = {
 };
 const friend = me;
 friend.age = 27;
-console.log("friend:", friend);
-console.log("me:", me);
+console.log('friend:', friend);
+console.log('me:', me);
 
 /*
 -REVIEW: PRIMITIVES, OBJECTS AND THE JS ENGINE-
@@ -475,3 +475,19 @@ When we declare a variable as an object an identifier is created which points to
 */
 
 // +++ PRIMITIVES VS. OBJECTS IN PRACTICE
+
+// Mutating a primitive value:
+let lastName = 'Williams';
+let oldLastName = lastName;
+lastName = 'Davis';
+console.log(lastName, oldLastName);
+
+const jessica = {
+  firstName: 'Jessica',
+  lastName: 'Williams',
+  age: 27,
+};
+const marriedJessica = jessica;
+marriedJessica.lastName = 'Davis';
+console.log('Before marriage:', jessica);
+console.log('After marriage:', marriedJessica);
