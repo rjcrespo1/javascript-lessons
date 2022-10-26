@@ -476,12 +476,13 @@ When we declare a variable as an object an identifier is created which points to
 
 // +++ PRIMITIVES VS. OBJECTS IN PRACTICE
 
-// Mutating a primitive value:
+// Mutating a primitive value (Primitive Types):
 let lastName = 'Williams';
 let oldLastName = lastName;
 lastName = 'Davis';
 console.log(lastName, oldLastName);
 
+// Reference Types:
 const jessica = {
   firstName: 'Jessica',
   lastName: 'Williams',
@@ -489,5 +490,33 @@ const jessica = {
 };
 const marriedJessica = jessica;
 marriedJessica.lastName = 'Davis';
-console.log('Before marriage:', jessica);
-console.log('After marriage:', marriedJessica);
+// console.log('Before marriage:', jessica);
+// console.log('After marriage:', marriedJessica);
+
+// marriedJessica = {};
+/* -> this cannot work because the new object will be stored in a different position and memory, therefore the reference to that position and memory will have to change in the variable "marriedJessica".
+If, on line 490, there was a LET instead of CONST, then this -> marriedJessica = {}; would work. 
+So as a conclusion, completely changing the object is very different than simply changing a property.
+*/
+
+// Copying Objects:
+const jessica2 = {
+  firstName: 'Jessica',
+  lastName: 'Williams',
+  age: 27,
+  family: ['Alice', 'Bob'],
+};
+
+const jessicaCopy = Object.assign({}, jessica2); // -> here we are merging an empty object with the object "jessica2", creating a completely new object where all the properties are copied
+// -> the object.assign() function basically just merges two objects together
+jessicaCopy.lastName = 'Davis';
+
+jessicaCopy.family.push('Mary');
+jessicaCopy.family.push('John');
+
+console.log('Original:', jessica2);
+console.log('Object Assign:', jessicaCopy);
+/*
+So here, I am showing how the Object.assign() method only works for an object on the first level. Any other object, or array, within that original object does not get copied or saved.
+So when we change something in one, it will be changed for the other as well.
+*/
