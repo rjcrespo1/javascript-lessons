@@ -11,6 +11,7 @@ const restaurant = {
   categories: ['Italian', 'Pizzeria', 'Vegetarian', 'Organic'],
   starterMenu: ['Focaccia', 'Bruschetta', 'Garlic Bread', 'Caprese Salad'],
   mainMenu: ['Pizza', 'Pasta', 'Risotto'],
+
   order: function (starterIndex, mainIndex) {
     return [this.starterMenu[starterIndex], this.mainMenu[mainIndex]];
   },
@@ -73,5 +74,16 @@ const [i, , [j, k]] = nested;
 console.log(i, j, k); // -> by destructuring further, we get the nested array returned as individual items ==> "2, 5, 6"
 
 // Default values:
-const [p=1, q=1, r=1] = [8, 9];
+const [p = 1, q = 1, r = 1] = [8, 9];
 console.log(p, q, r); // -> by setting default values to our variables, any variable that is leftover (nothing to assign it to), will display as the default value
+
+// +++ 104. DESTRUCTURING OBJECTS
+const { name, openingHours, categories } = restaurant; // -> to destructure objects we use the curly braces
+console.log(name, openingHours, categories);
+
+const { // -> renaming variables for the object
+  name: restaurantName,
+  openingHours: hours,
+  categories: tags,
+} = restaurant;
+console.log(restaurantName, hours, tags);
