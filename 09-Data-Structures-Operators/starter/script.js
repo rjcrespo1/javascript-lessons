@@ -35,9 +35,9 @@ const restaurant = {
 // +++ 103. DESTRUCTURING ARRAYS
 
 const arr = [2, 3, 4];
-const a = arr[0];
-const b = arr[1];
-const c = arr[2];
+// const a = arr[0];
+// const b = arr[1];
+// const c = arr[2];
 // console.log(a, b, c)
 
 const [x, y, z] = arr; // this destructuring is the same as the above (lines 34-36) but simplified and much cleaner.
@@ -81,9 +81,23 @@ console.log(p, q, r); // -> by setting default values to our variables, any vari
 const { name, openingHours, categories } = restaurant; // -> to destructure objects we use the curly braces
 console.log(name, openingHours, categories);
 
-const { // -> renaming variables for the object
+const {
+  // -> renaming variables for the object
   name: restaurantName,
   openingHours: hours,
   categories: tags,
 } = restaurant;
 console.log(restaurantName, hours, tags);
+
+// Default values:
+const { menu = [], starterMenu: starters = [] } = restaurant;
+console.log(menu, starters);
+
+// Mutating variables:
+let a = 111;
+let b = 999;
+const obj = { a: 23, b: 7, c: 14 };
+
+({ a, b } = obj); // -> this sets a & b to 23 and 7. (THE PARENTHESES MUST BE PRESENT FOR THIS TO WORK!!!)
+console.log(a, b);
+
